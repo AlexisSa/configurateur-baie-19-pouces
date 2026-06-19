@@ -40,16 +40,6 @@
     return params;
   }
 
-  function buildMultiCartUrl(items) {
-    var parts = [];
-    for (var i = 0; i < items.length; i++) {
-      var productId = parseProductId(items[i].productId);
-      if (productId == null) continue;
-      parts.push(buildCartUrlParams(productId, items[i].quantity || 1));
-    }
-    return parts.join("&");
-  }
-
   function normalizeCartItems(data) {
     if (Array.isArray(data.items) && data.items.length) {
       return data.items;
@@ -117,54 +107,53 @@
   }
 
   /**
-   * Ajouts séquentiels : les appels AddToCart synchrones en boucle
-   * n'enregistrent qu'un seul article côté Oxatis.
+   * Le produit principal (items[0], la baie) déclenche le modal natif Oxatis.
+   * Les accessoires sont ajoutés silencieusement en AJAX AVANT, puis le modal
+   * natif est ouvert en dernier pour qu'il reflète le panier complet.
    */
   function addItemsToCart(items) {
     if (!items.length) {
       return Promise.resolve({ success: false, methods: [] });
     }
 
-    if (items.length === 1) {
-      var singleId = parseProductId(items[0].productId);
+    var mainItem = items[0];
+    var accessories = items.slice(1);
+
+    if (!accessories.length) {
+      var singleId = parseProductId(mainItem.productId);
       if (singleId == null) {
         return Promise.resolve({ success: false, methods: [] });
       }
       return Promise.resolve({
         success: true,
-        methods: [addToCartOnOxatis(singleId, items[0].quantity || 1)],
+        methods: [addToCartOnOxatis(singleId, mainItem.quantity || 1)],
       });
     }
 
     var methods = [];
-    var chain = Promise.resolve(true);
+    var chain = Promise.resolve();
 
-    for (var i = 0; i < items.length; i++) {
-      (function (item) {
-        chain = chain.then(function (allOk) {
-          var productId = parseProductId(item.productId);
-          if (productId == null) return allOk;
-
-          return addToCartViaAjax(productId, item.quantity || 1).then(function (
-            ajaxOk,
-          ) {
-            if (ajaxOk) {
-              methods.push("ajax:" + productId);
-              return allOk;
-            }
-            methods.push(addToCartOnOxatis(productId, item.quantity || 1));
-            return allOk;
-          }).then(function (allOk) {
-            return delay(MULTI_CART_DELAY_MS).then(function () {
-              return allOk;
-            });
+    accessories.forEach(function (item) {
+      chain = chain.then(function () {
+        var productId = parseProductId(item.productId);
+        if (productId == null) return null;
+        return addToCartViaAjax(productId, item.quantity || 1)
+          .then(function (ajaxOk) {
+            methods.push((ajaxOk ? "ajax:" : "ajax-fail:") + productId);
+          })
+          .then(function () {
+            return delay(MULTI_CART_DELAY_MS);
           });
-        });
-      })(items[i]);
-    }
+      });
+    });
 
-    return chain.then(function (success) {
-      return { success: success, methods: methods };
+    return chain.then(function () {
+      var mainId = parseProductId(mainItem.productId);
+      if (mainId == null) {
+        return { success: methods.length > 0, methods: methods };
+      }
+      methods.push(addToCartOnOxatis(mainId, mainItem.quantity || 1));
+      return { success: true, methods: methods };
     });
   }
 
