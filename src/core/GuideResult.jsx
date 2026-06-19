@@ -6,6 +6,7 @@ import {
   SearchX,
   ShoppingCart,
 } from "lucide-react";
+import { GuideAccessories } from "./GuideAccessories.jsx";
 
 /**
  * @param {{
@@ -13,6 +14,12 @@ import {
  *   accessories?: import("./types.js").GuideAccessory[],
  *   selectedAccessoryIds?: string[],
  *   onToggleAccessory?: (id: string) => void,
+ *   groupAccessories?: (accessories: import("./types.js").GuideAccessory[]) => Array<{
+ *     id: string,
+ *     label: string,
+ *     hint: string | null,
+ *     items: import("./types.js").GuideAccessory[],
+ *   }>,
  *   cartStatus: string,
  *   onAddToCart: () => void,
  *   onRestart: () => void,
@@ -24,6 +31,7 @@ export function GuideResult({
   accessories = [],
   selectedAccessoryIds = [],
   onToggleAccessory,
+  groupAccessories,
   cartStatus,
   onAddToCart,
   onRestart,
@@ -61,6 +69,11 @@ export function GuideResult({
   }
 
   const isLoading = cartStatus === "loading";
+  const cartItemCount = 1 + selectedAccessoryIds.length;
+  const cartLabel =
+    selectedAccessoryIds.length > 0
+      ? `Ajouter au panier · ${cartItemCount} article${cartItemCount > 1 ? "s" : ""}`
+      : "Ajouter au panier";
 
   return (
     <section className="panel guide-result">
@@ -105,49 +118,13 @@ export function GuideResult({
         </div>
       </div>
 
-      {accessories.length > 0 && (
-        <div className="guide-accessories">
-          <h3 className="guide-accessories-title">Options complémentaires</h3>
-          <p className="guide-accessories-desc">
-            Ajoutez des accessoires compatibles avec votre baie.
-          </p>
-          <ul className="guide-accessories-list" role="list">
-            {accessories.map((accessory) => {
-              const selected = selectedAccessoryIds.includes(accessory.id);
-              return (
-                <li key={accessory.id} className="guide-accessory-item" role="listitem">
-                  <label
-                    className={`guide-accessory-card${selected ? " guide-accessory-card--selected" : ""}`}
-                  >
-                    <input
-                      type="checkbox"
-                      className="guide-accessory-check"
-                      checked={selected}
-                      onChange={() => onToggleAccessory?.(accessory.id)}
-                    />
-                    {accessory.imageUrl && (
-                      <span className="guide-accessory-visual">
-                        <img
-                          src={accessory.imageUrl}
-                          alt=""
-                          className="guide-accessory-image"
-                          loading="lazy"
-                        />
-                      </span>
-                    )}
-                    <span className="guide-accessory-body">
-                      <span className="guide-accessory-label">{accessory.label}</span>
-                      <span className="guide-accessory-ref">Réf. {accessory.sku}</span>
-                      {accessory.description && (
-                        <span className="guide-accessory-desc">{accessory.description}</span>
-                      )}
-                    </span>
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+      {groupAccessories && (
+        <GuideAccessories
+          accessories={accessories}
+          selectedAccessoryIds={selectedAccessoryIds}
+          onToggleAccessory={onToggleAccessory}
+          groupAccessories={groupAccessories}
+        />
       )}
 
       <div className="guide-result-actions">
@@ -158,7 +135,7 @@ export function GuideResult({
           disabled={isLoading}
         >
           <ShoppingCart size={16} aria-hidden />
-          {isLoading ? "Ajout en cours…" : "Ajouter au panier"}
+          {isLoading ? "Ajout en cours…" : cartLabel}
         </button>
         {onBack && (
           <button type="button" className="btn ghost" onClick={onBack}>

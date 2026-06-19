@@ -69,11 +69,26 @@ export function GuideEngine({ config, catalog }) {
     }
   }, [guide.isComplete]);
 
-  const toggleAccessory = useCallback((id) => {
-    setSelectedAccessoryIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
-    );
-  }, []);
+  const toggleAccessory = useCallback(
+    (id) => {
+      setSelectedAccessoryIds((prev) => {
+        if (prev.includes(id)) return prev.filter((item) => item !== id);
+
+        const accessory = accessories.find((item) => item.id === id);
+        const group = accessory?.exclusiveGroup;
+        const withoutGroup =
+          group != null
+            ? prev.filter((itemId) => {
+                const other = accessories.find((item) => item.id === itemId);
+                return other?.exclusiveGroup !== group;
+              })
+            : prev;
+
+        return [...withoutGroup, id];
+      });
+    },
+    [accessories],
+  );
 
   const handleRestart = useCallback(() => {
     setSelectedAccessoryIds([]);
@@ -163,6 +178,7 @@ export function GuideEngine({ config, catalog }) {
                 accessories={accessories}
                 selectedAccessoryIds={selectedAccessoryIds}
                 onToggleAccessory={toggleAccessory}
+                groupAccessories={config.groupAccessories}
                 cartStatus={cartStatus}
                 onAddToCart={handleAddToCart}
                 onRestart={handleRestart}

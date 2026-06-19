@@ -3,7 +3,7 @@ import {
   getStepOptions,
   resolveProduct,
 } from "./rules.js";
-import { getAccessories } from "./accessories.js";
+import { getAccessories, groupAccessories } from "./accessories.js";
 
 /** Illustrations des gammes — versions montées (photos catalogue Xeilom). */
 const GAMME_IMAGES = {
@@ -92,6 +92,7 @@ export const baieGuideConfig = {
   ],
   getStepOptions,
   getAccessories,
+  groupAccessories,
   formatAnswer,
   resolveProduct,
 };

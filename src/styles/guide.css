@@ -553,6 +553,14 @@
   border-top: 1px solid var(--border);
 }
 
+.guide-accessories-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 .guide-accessories-title {
   font-size: 0.92rem;
   font-weight: 600;
@@ -565,27 +573,60 @@
   font-size: 0.78rem;
   color: var(--text-muted);
   line-height: 1.4;
-  margin-bottom: 0.85rem;
+  margin: 0;
+}
+
+.guide-accessories-count {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--brand);
+  background: var(--brand-light);
+  padding: 0.32rem 0.65rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.guide-accessories-group + .guide-accessories-group {
+  margin-top: 1.1rem;
+}
+
+.guide-accessories-group-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem;
+}
+
+.guide-accessories-group-hint {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin: 0 0 0.6rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius);
+  background: var(--surface-muted);
 }
 
 .guide-accessories-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
 }
 
 .guide-accessory-card {
-  display: grid;
-  grid-template-columns: auto minmax(0, 3.5rem) minmax(0, 1fr);
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  overflow: hidden;
   cursor: pointer;
   transition:
     border-color var(--transition),
@@ -596,6 +637,12 @@
 .guide-accessory-card:hover {
   border-color: var(--border-hover);
   box-shadow: var(--shadow-sm);
+  background: #fff;
+}
+
+.guide-accessory-card:hover .guide-accessory-marker:not(.guide-accessory-marker--on) {
+  border-color: var(--brand);
+  background: var(--brand-light);
 }
 
 .guide-accessory-card--selected {
@@ -604,25 +651,66 @@
   background: #fff;
 }
 
-.guide-accessory-check {
-  width: 1rem;
-  height: 1rem;
-  accent-color: var(--brand);
+.guide-accessory-main {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 3.25rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.85rem 0.85rem 0.7rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
   cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.guide-accessory-main:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+}
+
+.guide-accessory-marker {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  border: 2px solid var(--border-hover);
+  background: #fff;
+  color: #fff;
+  pointer-events: none;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    transform var(--transition);
+}
+
+.guide-accessory-marker--on {
+  border-color: var(--brand);
+  background: var(--brand);
+  transform: scale(1.05);
 }
 
 .guide-accessory-visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.25rem;
+  height: 3.25rem;
 }
 
 .guide-accessory-image {
   display: block;
   max-width: 100%;
-  max-height: 3.5rem;
+  max-height: 3.25rem;
   object-fit: contain;
 }
 
@@ -634,9 +722,10 @@
 }
 
 .guide-accessory-label {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--text);
+  line-height: 1.25;
 }
 
 .guide-accessory-ref {
@@ -646,15 +735,35 @@
 }
 
 .guide-accessory-desc {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   line-height: 1.35;
   color: var(--text-muted);
 }
 
-@media (max-width: 540px) {
-  .guide-accessory-card {
-    grid-template-columns: auto minmax(0, 2.75rem) minmax(0, 1fr);
-    padding: 0.75rem 0.85rem;
+.guide-accessory-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0 0.85rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.guide-accessory-link:hover {
+  color: var(--brand);
+}
+
+@media (max-width: 640px) {
+  .guide-accessories-list {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-accessory-main {
+    grid-template-columns: minmax(0, 2.75rem) minmax(0, 1fr);
+    padding: 0.75rem 0.75rem 0.65rem;
   }
 
   .guide-accessory-visual {
