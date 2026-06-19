@@ -1,10 +1,12 @@
 /**
  * Script pont Oxatis — coller en fin de page sur xeilom.fr
  * Design → Code personnalisé → Fin de page (JavaScript)
+ *
+ * ALLOWED_ORIGINS = origines de l'iframe (app guide), pas xeilom.fr.
  */
 (function () {
   var ALLOWED_ORIGINS = [
-    "https://www.xeilom.fr",
+    "https://configurateur-baie-19-pouces.vercel.app",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
   ];

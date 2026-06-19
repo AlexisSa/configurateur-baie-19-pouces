@@ -32,8 +32,8 @@ git add src/guides/baie/catalog.json && git commit -m "Mise à jour catalogue ba
 
 ```html
 <iframe
-  src="https://VOTRE-DOMAINE/baie?embed=1"
-  title="Guide de choix baie"
+  src="https://configurateur-baie-19-pouces.vercel.app/baie?embed=1"
+  title="Guide de choix baie 19 pouces"
   style="width:100%;min-height:720px;border:0;"
   loading="lazy"
 ></iframe>
