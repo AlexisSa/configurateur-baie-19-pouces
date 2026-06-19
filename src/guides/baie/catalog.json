@@ -1,0 +1,1007 @@
+[
+  {
+    "productId": 37963003,
+    "sku": "XT-B6-206060KN",
+    "name": "Baie de Brassage 20U 600x600 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963003",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37963009,
+    "sku": "XT-B6-206060MN",
+    "name": "Baie de Brassage 20U 600x600 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963009",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37963010,
+    "sku": "XT-B6-206080KN",
+    "name": "Baie de Brassage 20U 600x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963010",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963011,
+    "sku": "XT-B6-206080MN",
+    "name": "Baie de Brassage 20U 600x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963011",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/04/B6-600x800_1.png",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963012,
+    "sku": "XT-B6-266060KN",
+    "name": "Baie de Brassage 26U 600x600 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963012",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37963013,
+    "sku": "XT-B6-266060MN",
+    "name": "Baie de Brassage 26U 600x600 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963013",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37963014,
+    "sku": "XT-B6-266080KN",
+    "name": "Baie de Brassage 26U 600x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963014",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963015,
+    "sku": "XT-B6-266080MN",
+    "name": "Baie de Brassage 26U 600x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963015",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/04/B6-600x800_1.png",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963016,
+    "sku": "XT-B6-268080KN",
+    "name": "Baie de Brassage 26U 800x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963016",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963017,
+    "sku": "XT-B6-268080MN",
+    "name": "Baie de Brassage 26U 800x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963017",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/B6-800x800_1.png",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963018,
+    "sku": "XT-B6-328080KN",
+    "name": "Baie de Brassage 32U 800x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963018",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 32,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963019,
+    "sku": "XT-B6-328080MN",
+    "name": "Baie de Brassage 32U 800x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963019",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/B6-800x800_1.png",
+    "attrs": {
+      "heightU": 32,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 39406628,
+    "sku": "XT-B6-366080KN",
+    "name": "Baie de Brassage 36U 600x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=39406628",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 36,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 39406646,
+    "sku": "XT-B6-366080MN",
+    "name": "Baie de Brassage 36U 600x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=39406646",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/04/B6-600x800_1.png",
+    "attrs": {
+      "heightU": 36,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 36433085,
+    "sku": "XT-B6-426060KN",
+    "name": "Baie de Brassage 42U 600x600 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36433085",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 36433040,
+    "sku": "XT-B6-426060MN",
+    "name": "Baie de Brassage 42U 600x600 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36433040",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37963020,
+    "sku": "XT-B6-426080KN",
+    "name": "Baie de Brassage 42U 600x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963020",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37963021,
+    "sku": "XT-B6-426080MN",
+    "name": "Baie de Brassage 42U 600x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37963021",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/04/B6-600x800_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 40698575,
+    "sku": "XT-B6-428060KN",
+    "name": "Baie de Brassage 42U 800x600 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=40698575",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/23/KX-B6-428060KN_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 40698576,
+    "sku": "XT-B6-428060MN",
+    "name": "Baie de Brassage 42U 800x600 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=40698576",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/B6-800x800_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 36432663,
+    "sku": "XT-B6-428080KN",
+    "name": "Baie de Brassage 42U 800x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36432663",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 36432879,
+    "sku": "XT-B6-428080MN",
+    "name": "Baie de Brassage 42U 800x800 mm - Noire - Charge 800 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36432879",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/B6-800x800_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 39529429,
+    "sku": "XT-B6-478080KN",
+    "name": "Baie de Brassage 47U 800x800 mm - Noire - Charge 800 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baie de brassage 19 pouces",
+    "family": "brassage",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=39529429",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-B6-428080KN_1.jpg",
+    "attrs": {
+      "heightU": 47,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 27740043,
+    "sku": "BAIEIP55-246060GS",
+    "name": "Baie étanche IP55 24U 600x600 mm - Grise - Charge 1000 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Baies étanches / outdoors IP55 19 pouces",
+    "family": "etanche-baie",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740043",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/BAIEIP55-246060GS_1.jpg",
+    "attrs": {
+      "heightU": 24,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 27740042,
+    "sku": "BAIEIP55-248080GS",
+    "name": "Baie étanche IP55 24U 800x800 mm - Grise - Charge 1000 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Baies étanches / outdoors IP55 19 pouces",
+    "family": "etanche-baie",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740042",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/BAIEIP55-248080GS_1.jpg",
+    "attrs": {
+      "heightU": 24,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 27740041,
+    "sku": "BAIEIP55-4280100GS",
+    "name": "Baie étanche IP55 42U 800x1000 mm - Grise - Charge 1000 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Baies étanches / outdoors IP55 19 pouces",
+    "family": "etanche-baie",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740041",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/BAIEIP55-4280100GS_1.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 27740040,
+    "sku": "BAIEIP55-428080GS",
+    "name": "Baie étanche IP55 42U 800x800 mm - Grise - Charge 1000 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Baies étanches / outdoors IP55 19 pouces",
+    "family": "etanche-baie",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740040",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/23/BAIEIP55-428080GS_1.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 37738989,
+    "sku": "XT-S6-2660100KN",
+    "name": "Baie Serveur 26U 600x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738989",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738990,
+    "sku": "XT-S6-2660100MN",
+    "name": "Baie Serveur 26U 600x1000 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738990",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/S6-600x1000_1.png",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738991,
+    "sku": "XT-S6-2680100KN",
+    "name": "Baie Serveur 26U 800x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738991",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738992,
+    "sku": "XT-S6-2680100MN",
+    "name": "Baie Serveur 26U 800x1000 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738992",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/12/S6-800x1000_1.png",
+    "attrs": {
+      "heightU": 26,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738993,
+    "sku": "XT-S6-3260100KN",
+    "name": "Baie Serveur 32U 600x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738993",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 32,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738994,
+    "sku": "XT-S6-3260100MN",
+    "name": "Baie Serveur 32U 600x1000 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738994",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/S6-600x1000_1.png",
+    "attrs": {
+      "heightU": 32,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738995,
+    "sku": "XT-S6-3680100KN",
+    "name": "Baie Serveur 36U 800x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738995",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 36,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738996,
+    "sku": "XT-S6-3680100MN",
+    "name": "Baie Serveur 36U 800x1000 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738996",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/12/S6-800x1000_1.png",
+    "attrs": {
+      "heightU": 36,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 40698577,
+    "sku": "XT-S6-421010KN",
+    "name": "Baie Serveur 42U 1000x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=40698577",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/13/KX-S6-421010KN_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 1000,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 36432316,
+    "sku": "XT-S6-4260100KN",
+    "name": "Baie Serveur 42U 600x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36432316",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 36432465,
+    "sku": "XT-S6-4260100MN",
+    "name": "Baie Serveur 42U 600x1000 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36432465",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/S6-600x1000_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37738997,
+    "sku": "XT-S6-4260120KN",
+    "name": "Baie Serveur 42U 600x1200 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738997",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 1200
+    }
+  },
+  {
+    "productId": 37738998,
+    "sku": "XT-S6-4260120MN",
+    "name": "Baie Serveur 42U 600x1200 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37738998",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/09/S6-600x1200_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 600,
+      "depthMm": 1200
+    }
+  },
+  {
+    "productId": 36432297,
+    "sku": "XT-S6-4280100KN",
+    "name": "Baie Serveur 42U 800x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36432297",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 36432245,
+    "sku": "XT-S6-4280100MN",
+    "name": "Baie Serveur 42U 800x1000 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36432245",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/12/S6-800x1000_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37739000,
+    "sku": "XT-S6-4280120KN",
+    "name": "Baie Serveur 42U 800x1200 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37739000",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 1200
+    }
+  },
+  {
+    "productId": 37739001,
+    "sku": "XT-S6-4280120MN",
+    "name": "Baie Serveur 42U 800x1200 mm - Noire - Charge 1200 kg | Montée",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37739001",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/08/S6-800x1200_1.png",
+    "attrs": {
+      "heightU": 42,
+      "widthMm": 800,
+      "depthMm": 1200
+    }
+  },
+  {
+    "productId": 42302147,
+    "sku": "XT-S6-471010KN",
+    "name": "Baie Serveur 47U 1000x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42302147",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/13/KX-S6-421010KN_1.png",
+    "attrs": {
+      "heightU": 47,
+      "widthMm": 1000,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37739002,
+    "sku": "XT-S6-4760100KN",
+    "name": "Baie Serveur 47U 600x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37739002",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 47,
+      "widthMm": 600,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 37739003,
+    "sku": "XT-S6-4780100KN",
+    "name": "Baie Serveur 47U 800x1000 mm - Noire - Charge 1200 kg | En kit",
+    "categoryPath": "Baies et coffrets\\Baies informatiques 19 pouces\\Baies serveurs 19 pouces",
+    "family": "serveur",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37739003",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-S6-4260100KN_2.jpg",
+    "attrs": {
+      "heightU": 47,
+      "widthMm": 800,
+      "depthMm": 1000
+    }
+  },
+  {
+    "productId": 26863855,
+    "sku": "332-691712IP55.1",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 12U 600 x 450 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863855",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/07/332-691712IP55-1_1.jpg",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 26863856,
+    "sku": "332-691712IP55.2",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 12U 600 x 600 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863856",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/332-IP55-1D.png",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 26863859,
+    "sku": "332-691716IP55.2",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 16U 600 x 600 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863859",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/13/332-691716IP55-2_1.jpg",
+    "attrs": {
+      "heightU": 16,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 26863861,
+    "sku": "332-691720IP55.2",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 20U 600 x 600 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863861",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/05/332-691720IP55-2_1.jpg",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 26863851,
+    "sku": "332-691707IP55.1",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 7U 600 x 450 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863851",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/15/332-691707IP55-1_1.jpg",
+    "attrs": {
+      "heightU": 7,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 26863852,
+    "sku": "332-691707IP55.2",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 7U 600 x 600 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863852",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/20/332-691707IP55-2_1.jpg",
+    "attrs": {
+      "heightU": 7,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 26863853,
+    "sku": "332-691709IP55.1",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 9U 600 x 450 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863853",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/15/332-691709IP55-1_1.jpg",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 26863854,
+    "sku": "332-691709IP55.2",
+    "name": "Coffret étanche / outdoor 19\" IP55 - 9U 600 x 600 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863854",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/05/332-691709IP55-2_1.jpg",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42202755,
+    "sku": "XT-IP55126060PA",
+    "name": "Coffret étanche 12U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42202755",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/01/XT-IP55xxxxPA-big.png",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42654773,
+    "sku": "XT-IP55126060PAV",
+    "name": "Coffret étanche 12U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles et porte en verre sécurit",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42654773",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/14/XT-IP55xxxxPAV-1-big.png",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42202786,
+    "sku": "XT-IP55166060PA",
+    "name": "Coffret étanche 16U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42202786",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/01/XT-IP55xxxxPA-big.png",
+    "attrs": {
+      "heightU": 16,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42654778,
+    "sku": "XT-IP55166060PAV",
+    "name": "Coffret étanche 16U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles et porte en verre sécurit",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42654778",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/14/XT-IP55xxxxPAV-1-big.png",
+    "attrs": {
+      "heightU": 16,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42202793,
+    "sku": "XT-IP55206060PA",
+    "name": "Coffret étanche 20U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42202793",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/01/XT-IP55xxxxPA-big.png",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42654784,
+    "sku": "XT-IP55206060PAV",
+    "name": "Coffret étanche 20U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles et porte en verre sécurit",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42654784",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/14/XT-IP55xxxxPAV-1-big.png",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42189933,
+    "sku": "XT-IP5576060PA",
+    "name": "Coffret étanche 7U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42189933",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/01/XT-IP55xxxxPA-big.png",
+    "attrs": {
+      "heightU": 7,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42654764,
+    "sku": "XT-IP5576060PAV",
+    "name": "Coffret étanche 7U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles et porte en verre sécurit",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42654764",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/14/XT-IP55xxxxPAV-1-big.png",
+    "attrs": {
+      "heightU": 7,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42202783,
+    "sku": "XT-IP5596060PA",
+    "name": "Coffret étanche 9U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42202783",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/01/XT-IP55xxxxPA-big.png",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 42654771,
+    "sku": "XT-IP5596060PAV",
+    "name": "Coffret étanche 9U 600x600 mm IP55 19 pouces avec panneaux latéraux amovibles et porte en verre sécurit",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=42654771",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/14/XT-IP55xxxxPAV-1-big.png",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 26863857,
+    "sku": "332-691716IP55.1",
+    "name": "Coffret Outdoor 19\" IP55 - 16U 600 x 450 mm - Gris",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26863857",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/08/332-691716IP55-1_1.jpg",
+    "attrs": {
+      "heightU": 16,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 36205373,
+    "sku": "332-691666",
+    "name": "Filtre de rechange pour coffret étanche : IP55-332",
+    "categoryPath": "Baies et coffrets\\Baies et coffrets étanches\\Coffrets étanches / outdoors IP55 19 pouces",
+    "family": "coffret-etanche",
+    "mounting": null,
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=36205373",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/06/332-691666-1-big.jpg",
+    "attrs": {
+      "heightU": null,
+      "widthMm": null,
+      "depthMm": null
+    }
+  }
+]

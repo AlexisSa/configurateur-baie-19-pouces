@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+
+# Export catalogue Oxatis (local uniquement — regénérer via npm run build:catalog)
+docs/Oxatis-All-xeilom-26993.csv
+data/import/*.csv

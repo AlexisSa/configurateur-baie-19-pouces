@@ -1,0 +1,51 @@
+/* —— Layout —— */
+.app-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.75rem 1.75rem 3.5rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 400px);
+  gap: 1.5rem;
+  align-items: start;
+  min-width: 0;
+}
+
+.wizard-column,
+.sidebar-column {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 4.5rem;
+  align-self: start;
+}
+
+.app:not(.app--embed) .sidebar-column {
+  top: 7.25rem;
+}
+
+.sidebar-column .panel {
+  margin-bottom: 0;
+}
+
+.wizard-column .panel:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar-column {
+    position: static;
+  }
+}

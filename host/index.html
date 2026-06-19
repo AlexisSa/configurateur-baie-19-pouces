@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hôte de test — Guide baie Xeilom</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: #f4f5f7;
+        color: #1a1a1a;
+      }
+      header {
+        padding: 1rem 1.25rem;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+      header p {
+        margin: 0.35rem 0 0;
+        font-size: 0.85rem;
+        color: #666;
+      }
+      main {
+        padding: 1rem;
+      }
+      iframe {
+        display: block;
+        width: 100%;
+        min-height: 720px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #fff;
+      }
+      #log {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: ui-monospace, monospace;
+        font-size: 0.78rem;
+        white-space: pre-wrap;
+        max-height: 220px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Simulateur xeilom.fr (local)</h1>
+      <p>Écoute postMessage : resize iframe + ajout panier</p>
+    </header>
+    <main>
+      <iframe
+        id="guide-frame"
+        src="/baie?embed=1"
+        title="Guide de choix baie"
+        loading="lazy"
+      ></iframe>
+      <div id="log">En attente de messages…</div>
+    </main>
+    <script>
+      (function () {
+        var logEl = document.getElementById("log");
+        var frame = document.getElementById("guide-frame");
+        var lines = [];
+
+        function appendLog(text) {
+          lines.unshift("[" + new Date().toLocaleTimeString("fr-FR") + "] " + text);
+          if (lines.length > 12) lines.length = 12;
+          logEl.textContent = lines.join("\n");
+        }
+
+        window.addEventListener("message", function (event) {
+          var data = event.data;
+          if (!data || typeof data.type !== "string") return;
+
+          if (data.type === "xeilom-resize" && typeof data.height === "number") {
+            frame.style.height = Math.max(data.height, 320) + "px";
+            appendLog("xeilom-resize → hauteur " + data.height + "px");
+            return;
+          }
+
+          if (data.type === "XEILOM_ADD_TO_CART") {
+            appendLog(
+              "XEILOM_ADD_TO_CART → productId=" +
+                data.productId +
+                " qty=" +
+                (data.quantity || 1),
+            );
+            if (event.source && event.source.postMessage) {
+              event.source.postMessage(
+                {
+                  type: "XEILOM_ADD_TO_CART_RESULT",
+                  success: true,
+                  productId: data.productId,
+                  method: "mock",
+                },
+                event.origin,
+              );
+            }
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

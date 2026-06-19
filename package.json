@@ -1,0 +1,21 @@
+{
+  "name": "guide-baie-xeilom",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:catalog && vite build",
+    "preview": "vite preview",
+    "build:catalog": "node scripts/build-baie-catalog.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.555.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.2",
+    "vite": "^6.3.5"
+  }
+}
