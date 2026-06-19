@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseOxatisCsv } from "../xeilom-kit/scripts/lib/parseOxatisCsv.mjs";
@@ -64,6 +64,19 @@ function normalizeImageUrl(url) {
   const trimmed = url.trim();
   if (trimmed.startsWith("http")) return trimmed;
   return `https://www.xeilom.fr/Files/126457/Img/${trimmed.startsWith("/") ? trimmed.slice(1) : trimmed}`;
+}
+
+if (!existsSync(CSV_PATH)) {
+  if (existsSync(OUT_PATH)) {
+    console.log(
+      `CSV absent (${CSV_PATH}) — conservation de ${OUT_PATH} existant.`,
+    );
+    process.exit(0);
+  }
+  console.error(
+    `CSV introuvable : ${CSV_PATH}\nPlacez l'export Oxatis ou lancez depuis un clone avec data/import/.`,
+  );
+  process.exit(1);
 }
 
 const raw = readFileSync(CSV_PATH, "latin1");

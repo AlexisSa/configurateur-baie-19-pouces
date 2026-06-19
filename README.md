@@ -13,6 +13,18 @@ npm run dev
 - Guide : [http://localhost:5173/baie](http://localhost:5173/baie)
 - Test iframe : [http://localhost:5173/host/](http://localhost:5173/host/)
 
+## Déploiement Vercel
+
+Connecter le repo GitHub — la commande `npm run build` suffit (`catalog.json` est versionné).
+
+Pour regénérer le catalogue après un export Oxatis (en local) :
+
+```bash
+# placer le CSV dans data/import/ puis :
+npm run build:catalog
+git add src/guides/baie/catalog.json && git commit -m "Mise à jour catalogue baie"
+```
+
 ## Intégration Oxatis
 
 1. Héberger l'app (Vercel, Netlify, sous-domaine Xeilom…)

@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/host", "destination": "/host/index.html" },
+    { "source": "/baie", "destination": "/index.html" },
+    { "source": "/((?!assets/|host/).*)", "destination": "/index.html" }
+  ]
+}
