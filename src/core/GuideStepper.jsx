@@ -83,20 +83,28 @@ export function GuideStepper({
           );
         })}
 
-        {isComplete && (
-          <li
-            className="guide-stepper-item guide-stepper-item--current guide-stepper-item--result"
-            aria-current="step"
-          >
-            <span className="guide-stepper-marker" aria-hidden>
-              {steps.length + 1}
-            </span>
-            <div className="guide-stepper-content">
-              <span className="guide-stepper-label">Résultat</span>
+        <li
+          className={`guide-stepper-item guide-stepper-item--result${
+            isComplete
+              ? " guide-stepper-item--current"
+              : " guide-stepper-item--upcoming"
+          }`}
+          aria-current={isComplete ? "step" : undefined}
+        >
+          <span className="guide-stepper-marker" aria-hidden>
+            {steps.length + 1}
+          </span>
+          <div className="guide-stepper-content">
+            <span className="guide-stepper-label">Résultat</span>
+            {isComplete ? (
               <span className="guide-stepper-hint">Produit recommandé</span>
-            </div>
-          </li>
-        )}
+            ) : (
+              <span className="guide-stepper-hint guide-stepper-hint--muted">
+                À venir
+              </span>
+            )}
+          </div>
+        </li>
       </ol>
     </nav>
   );

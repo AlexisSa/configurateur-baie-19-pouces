@@ -1,7 +1,8 @@
-import { useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ToastContainer } from "../../xeilom-kit/components/ToastContainer.jsx";
 import { useAddToCart, useEmbedResize, useToasts } from "../../xeilom-kit/hooks/index.js";
 import { isEmbedMode } from "../../xeilom-kit/utils/embedMode.js";
+import { GuideProgress } from "./GuideProgress.jsx";
 import { GuideResult } from "./GuideResult.jsx";
 import { GuideStepper } from "./GuideStepper.jsx";
 import { StepQuestion } from "./StepQuestion.jsx";
@@ -19,6 +20,7 @@ export function GuideEngine({ config, catalog }) {
   const { toasts, addToast, removeToast } = useToasts();
   const { status: cartStatus, addToCart } = useAddToCart();
   const guide = useGuideState(config);
+  const [selectedAccessoryIds, setSelectedAccessoryIds] = useState([]);
 
   const currentStepOptions = useMemo(() => {
     if (!guide.currentStep || guide.isComplete) return [];
@@ -56,9 +58,37 @@ export function GuideEngine({ config, catalog }) {
     return config.resolveProduct(guide.answers, catalog);
   }, [catalog, config, guide.answers, guide.isComplete]);
 
+  const accessories = useMemo(() => {
+    if (!guide.isComplete) return [];
+    return config.getAccessories?.(guide.answers, resolvedProduct, catalog) ?? [];
+  }, [catalog, config, guide.answers, guide.isComplete, resolvedProduct]);
+
+  useEffect(() => {
+    if (!guide.isComplete) {
+      setSelectedAccessoryIds([]);
+    }
+  }, [guide.isComplete]);
+
+  const toggleAccessory = useCallback((id) => {
+    setSelectedAccessoryIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+    );
+  }, []);
+
+  const handleRestart = useCallback(() => {
+    setSelectedAccessoryIds([]);
+    guide.restart();
+  }, [guide.restart]);
+
   useEffect(() => {
     if (cartStatus === "success") {
-      addToast("success", "Ajouté au panier", "Le produit a été ajouté à votre panier.");
+      addToast(
+        "success",
+        "Ajouté au panier",
+        selectedAccessoryIds.length
+          ? "La baie et les accessoires ont été ajoutés à votre panier."
+          : "Le produit a été ajouté à votre panier.",
+      );
     }
     if (cartStatus === "fallback") {
       addToast(
@@ -67,19 +97,42 @@ export function GuideEngine({ config, catalog }) {
         "Ouverture du panier Xeilom pour finaliser l'ajout.",
       );
     }
-  }, [addToast, cartStatus]);
+  }, [addToast, cartStatus, selectedAccessoryIds.length]);
 
   const handleAddToCart = () => {
     if (!resolvedProduct) return;
-    addToCart(resolvedProduct.productId);
+
+    const items = [{ productId: resolvedProduct.productId, quantity: 1 }];
+    for (const accessory of accessories) {
+      if (selectedAccessoryIds.includes(accessory.id)) {
+        items.push({ productId: accessory.productId, quantity: 1 });
+      }
+    }
+
+    addToCart(items);
   };
 
   const formatAnswer = (stepId, value) =>
     config.formatAnswer?.(stepId, value) ?? value;
 
+  const totalSteps = config.steps.length;
+  const stepNumber = Math.min(guide.stepIndex + 1, totalSteps);
+  // +1 pour traiter le résultat comme étape finale → progression plus régulière.
+  const progressPercent = guide.isComplete
+    ? 100
+    : Math.round(((guide.stepIndex + 1) / (totalSteps + 1)) * 100);
+
   return (
     <>
       <main className={`guide-main${isEmbedMode() ? " guide-main--embed" : ""}`}>
+        <GuideProgress
+          title={config.meta?.title}
+          stepNumber={stepNumber}
+          totalSteps={totalSteps}
+          percent={progressPercent}
+          isComplete={guide.isComplete}
+        />
+
         <div className="guide-layout">
           <GuideStepper
             steps={config.steps}
@@ -107,9 +160,12 @@ export function GuideEngine({ config, catalog }) {
             {guide.isComplete && (
               <GuideResult
                 product={resolvedProduct}
+                accessories={accessories}
+                selectedAccessoryIds={selectedAccessoryIds}
+                onToggleAccessory={toggleAccessory}
                 cartStatus={cartStatus}
                 onAddToCart={handleAddToCart}
-                onRestart={guide.restart}
+                onRestart={handleRestart}
                 onBack={() => guide.goToStep(config.steps.length - 1)}
               />
             )}

@@ -1,8 +1,21 @@
 /**
+ * @typedef {Object} GuideAccessory
+ * @property {string} id
+ * @property {number} productId
+ * @property {string} sku
+ * @property {string} label
+ * @property {string} [description]
+ * @property {string|null} [imageUrl]
+ * @property {string} [productUrl]
+ * @property {string[]} compatUsage
+ */
+
+/**
  * @typedef {Object} GuideOption
  * @property {string} value
  * @property {string} label
  * @property {string} [description]
+ * @property {string} [imageUrl]
  */
 
 /**
@@ -48,6 +61,7 @@
  * @typedef {Object} GuideConfig
  * @property {GuideMeta} meta
  * @property {GuideStep[]} steps
+ * @property {(answers: Record<string, string>, product: ResolvedProduct|null, catalog: CatalogProduct[]) => GuideAccessory[]} [getAccessories]
  * @property {(stepId: string, answers: Record<string, string>, catalog: CatalogProduct[]) => GuideOption[]|null} [getStepOptions]
  * @property {(stepId: string, value: string) => string} [formatAnswer]
  * @property {(answers: Record<string, string>, catalog: CatalogProduct[]) => ResolvedProduct|null} resolveProduct

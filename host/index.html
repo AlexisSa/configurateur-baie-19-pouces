@@ -90,18 +90,34 @@
           }
 
           if (data.type === "XEILOM_ADD_TO_CART") {
+            var cartItems =
+              Array.isArray(data.items) && data.items.length
+                ? data.items
+                : [{ productId: data.productId, quantity: data.quantity || 1 }];
+
             appendLog(
-              "XEILOM_ADD_TO_CART → productId=" +
-                data.productId +
-                " qty=" +
-                (data.quantity || 1),
+              "XEILOM_ADD_TO_CART → " +
+                cartItems
+                  .map(function (item) {
+                    return "id=" + item.productId + " qty=" + (item.quantity || 1);
+                  })
+                  .join(", "),
             );
+
+            for (var j = 0; j < cartItems.length; j++) {
+              var pid = parseInt(cartItems[j].productId, 10);
+              if (!Number.isFinite(pid) || pid <= 0) continue;
+              // Simule l'ajout AJAX Oxatis pour chaque ligne.
+              appendLog("  mock AddToCart(" + pid + ")");
+            }
+
             if (event.source && event.source.postMessage) {
               event.source.postMessage(
                 {
                   type: "XEILOM_ADD_TO_CART_RESULT",
                   success: true,
-                  productId: data.productId,
+                  productId: cartItems[0].productId,
+                  itemCount: cartItems.length,
                   method: "mock",
                 },
                 event.origin,

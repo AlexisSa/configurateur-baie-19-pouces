@@ -10,7 +10,7 @@ export const USAGE_FAMILIES = {
 export const USAGE_LABELS = {
   serveur: "Baie serveur",
   brassage: "Baie de brassage",
-  "coffret-st": "Coffret XT-ST",
+  "coffret-st": "Coffret 19\"",
   etanche: "Gamme étanche IP55",
 };
 

@@ -9,6 +9,9 @@
     "https://configurateur-baie-19-pouces.vercel.app",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    "http://localhost:5176",
   ];
 
   var ADD_TO_CART = "XEILOM_ADD_TO_CART";
@@ -16,6 +19,7 @@
   var EMBED_RESIZE = "xeilom-resize";
   var EMBED_CONTEXT = "xeilom-context";
   var EMBED_REQUEST_CONTEXT = "xeilom-request-context";
+  var MULTI_CART_DELAY_MS = 400;
 
   function isAllowedOrigin(origin) {
     return ALLOWED_ORIGINS.indexOf(origin) !== -1;
@@ -36,12 +40,31 @@
     return params;
   }
 
+  function buildMultiCartUrl(items) {
+    var parts = [];
+    for (var i = 0; i < items.length; i++) {
+      var productId = parseProductId(items[i].productId);
+      if (productId == null) continue;
+      parts.push(buildCartUrlParams(productId, items[i].quantity || 1));
+    }
+    return parts.join("&");
+  }
+
+  function normalizeCartItems(data) {
+    if (Array.isArray(data.items) && data.items.length) {
+      return data.items;
+    }
+    if (data.productId != null) {
+      return [{ productId: data.productId, quantity: data.quantity || 1 }];
+    }
+    return [];
+  }
+
   function addToCartOnOxatis(productId, quantity) {
     if (typeof window.AddToCart === "function") {
       window.AddToCart(productId);
       return "AddToCart";
     }
-    // Pages contenu (PBCPPlayer) : pas de AddToCart/PostFormData, mais OxAddToCart oui.
     var urlParams = buildCartUrlParams(productId, quantity);
     if (typeof window.OxAddToCart === "function") {
       window.OxAddToCart(productId, urlParams);
@@ -52,8 +75,97 @@
       return "oxCart.oxAddToCart";
     }
     window.location.href =
-      "https://www.xeilom.fr/PBShoppingCart.asp?ItmID=" + productId;
+      "https://www.xeilom.fr/PBShoppingCart.asp?" + urlParams;
     return "redirect";
+  }
+
+  function addToCartViaAjax(productId, quantity) {
+    var url =
+      "/PBShoppingCart.asp?ajaxmode=1&cartRelatedProducts=1&ItmID=" + productId;
+    var qty = parseInt(quantity, 10);
+    if (Number.isFinite(qty) && qty > 1) {
+      url += "&Qty=" + qty;
+    }
+
+    if (typeof fetch === "function") {
+      return fetch(url, { credentials: "same-origin", method: "GET" })
+        .then(function (response) {
+          return response.ok;
+        })
+        .catch(function () {
+          return false;
+        });
+    }
+
+    return new Promise(function (resolve) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.onload = function () {
+        resolve(xhr.status >= 200 && xhr.status < 300);
+      };
+      xhr.onerror = function () {
+        resolve(false);
+      };
+      xhr.send();
+    });
+  }
+
+  function delay(ms) {
+    return new Promise(function (resolve) {
+      window.setTimeout(resolve, ms);
+    });
+  }
+
+  /**
+   * Ajouts séquentiels : les appels AddToCart synchrones en boucle
+   * n'enregistrent qu'un seul article côté Oxatis.
+   */
+  function addItemsToCart(items) {
+    if (!items.length) {
+      return Promise.resolve({ success: false, methods: [] });
+    }
+
+    if (items.length === 1) {
+      var singleId = parseProductId(items[0].productId);
+      if (singleId == null) {
+        return Promise.resolve({ success: false, methods: [] });
+      }
+      return Promise.resolve({
+        success: true,
+        methods: [addToCartOnOxatis(singleId, items[0].quantity || 1)],
+      });
+    }
+
+    var methods = [];
+    var chain = Promise.resolve(true);
+
+    for (var i = 0; i < items.length; i++) {
+      (function (item) {
+        chain = chain.then(function (allOk) {
+          var productId = parseProductId(item.productId);
+          if (productId == null) return allOk;
+
+          return addToCartViaAjax(productId, item.quantity || 1).then(function (
+            ajaxOk,
+          ) {
+            if (ajaxOk) {
+              methods.push("ajax:" + productId);
+              return allOk;
+            }
+            methods.push(addToCartOnOxatis(productId, item.quantity || 1));
+            return allOk;
+          }).then(function (allOk) {
+            return delay(MULTI_CART_DELAY_MS).then(function () {
+              return allOk;
+            });
+          });
+        });
+      })(items[i]);
+    }
+
+    return chain.then(function (success) {
+      return { success: success, methods: methods };
+    });
   }
 
   function replyToIframe(source, origin, payload) {
@@ -95,22 +207,25 @@
 
     if (data.type !== ADD_TO_CART) return;
 
-    var productId = parseProductId(data.productId);
-    if (productId == null) {
+    var items = normalizeCartItems(data);
+
+    addItemsToCart(items).then(function (result) {
+      if (!result.methods.length) {
+        replyToIframe(event.source, event.origin, {
+          type: ADD_TO_CART_RESULT,
+          success: false,
+          productId: data.productId,
+        });
+        return;
+      }
+
       replyToIframe(event.source, event.origin, {
         type: ADD_TO_CART_RESULT,
-        success: false,
-        productId: data.productId,
+        success: result.success,
+        productId: parseProductId(items[0].productId),
+        itemCount: items.length,
+        method: result.methods.join("+"),
       });
-      return;
-    }
-
-    var method = addToCartOnOxatis(productId, data.quantity);
-    replyToIframe(event.source, event.origin, {
-      type: ADD_TO_CART_RESULT,
-      success: true,
-      productId: productId,
-      method: method,
     });
   });
 })();

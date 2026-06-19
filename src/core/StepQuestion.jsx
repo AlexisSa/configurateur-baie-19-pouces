@@ -10,6 +10,13 @@ import { ArrowLeft, Check } from "lucide-react";
  * }} props
  */
 export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack }) {
+  const hasImages = step.options.some((option) => option.imageUrl);
+  const hasDescriptions = step.options.some((option) => option.description);
+
+  let variant = "value";
+  if (hasImages) variant = "visual";
+  else if (hasDescriptions) variant = "text";
+
   return (
     <section className="panel guide-step">
       <div className="panel-header">
@@ -33,13 +40,13 @@ export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack 
         </p>
       )}
 
-      <div className="option-grid" role="list">
+      <div className={`option-grid option-grid--${variant}`} role="list">
         {step.options.map((option) => {
           const selected = selectedValue === option.value;
           return (
             <div
               key={option.value}
-              className={`option-tile${selected ? " selected" : ""}`}
+              className={`option-tile option-tile--${variant}${selected ? " selected" : ""}`}
               role="listitem"
             >
               <button
@@ -51,6 +58,17 @@ export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack 
                 {selected && (
                   <span className="option-tile-check" aria-hidden>
                     <Check size={14} strokeWidth={3} />
+                  </span>
+                )}
+                {option.imageUrl && (
+                  <span className="option-tile-visual">
+                    <img
+                      className="option-tile-image"
+                      src={option.imageUrl}
+                      alt={option.label}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </span>
                 )}
                 <span className="option-tile-body">

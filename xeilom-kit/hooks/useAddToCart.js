@@ -6,7 +6,7 @@ import {
   OXATIS_CART_BASE_URL,
 } from "../utils/embedMessages.js";
 
-const CART_TIMEOUT_MS = 2000;
+const CART_TIMEOUT_MS = 3500;
 
 function getPostMessageTargets() {
   if (import.meta.env.DEV) return ["*"];
@@ -19,6 +19,38 @@ function isEmbeddedInParent() {
   } catch {
     return true;
   }
+}
+
+/**
+ * @param {number|{ productId: number, quantity?: number }[]} productIdOrItems
+ * @param {number} [quantity]
+ * @returns {{ productId: number, quantity: number }[]}
+ */
+function normalizeCartItems(productIdOrItems, quantity = 1) {
+  if (Array.isArray(productIdOrItems)) {
+    return productIdOrItems
+      .map((item) => ({
+        productId: Number(item.productId),
+        quantity: Number(item.quantity) || 1,
+      }))
+      .filter((item) => Number.isInteger(item.productId) && item.productId > 0);
+  }
+
+  const id = Number(productIdOrItems);
+  if (!Number.isInteger(id) || id <= 0) return [];
+  return [{ productId: id, quantity }];
+}
+
+function buildCartFallbackUrl(items) {
+  const params = items
+    .map((item) => {
+      const qty = Number(item.quantity) || 1;
+      return qty > 1
+        ? `ItmID=${item.productId}&Qty=${qty}`
+        : `ItmID=${item.productId}`;
+    })
+    .join("&");
+  return `${OXATIS_CART_BASE_URL}?${params}`;
 }
 
 export function useAddToCart() {
@@ -37,26 +69,33 @@ export function useAddToCart() {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  const addToCart = useCallback((productId, quantity = 1) => {
-    const id = Number(productId);
-    if (!Number.isInteger(id) || id <= 0) return;
+  const addToCart = useCallback((productIdOrItems, quantity = 1) => {
+    const items = normalizeCartItems(productIdOrItems, quantity);
+    if (!items.length) return;
+
     setStatus("loading");
-    const payload = { type: ADD_TO_CART_MESSAGE_TYPE, productId: id, quantity };
+    const payload = {
+      type: ADD_TO_CART_MESSAGE_TYPE,
+      items,
+      productId: items[0].productId,
+      quantity: items[0].quantity,
+    };
 
     if (isEmbeddedInParent()) {
       for (const origin of getPostMessageTargets()) {
         window.parent.postMessage(payload, origin);
       }
+      const timeoutMs = items.length > 1 ? CART_TIMEOUT_MS * items.length : CART_TIMEOUT_MS;
       const timeoutId = window.setTimeout(() => {
         pendingRef.current = null;
-        window.top.location.href = `${OXATIS_CART_BASE_URL}?ItmID=${id}`;
+        window.top.location.href = buildCartFallbackUrl(items);
         setStatus("fallback");
-      }, CART_TIMEOUT_MS);
-      pendingRef.current = { productId: id, timeoutId };
+      }, timeoutMs);
+      pendingRef.current = { items, timeoutId };
       return;
     }
 
-    window.location.href = `${OXATIS_CART_BASE_URL}?ItmID=${id}`;
+    window.location.href = buildCartFallbackUrl(items);
     setStatus("fallback");
   }, []);
 
