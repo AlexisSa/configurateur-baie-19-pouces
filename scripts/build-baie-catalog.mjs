@@ -17,6 +17,13 @@ const CATEGORY_RULES = [
     suffix: "Coffrets étanches / outdoors IP55 19 pouces",
     family: "coffret-etanche",
   },
+  { suffix: 'Coffrets 19" profondeur 450 mm', family: "coffret-st" },
+  { suffix: 'Coffrets 19" profondeur 600 mm', family: "coffret-st" },
+  { suffix: 'Coffrets 19" profondeur 800 mm', family: "coffret-st" },
+  {
+    suffix: "Coffrets informatiques 19 pouces sur pieds",
+    family: "coffret-st",
+  },
 ];
 
 /**
@@ -36,7 +43,7 @@ function resolveFamily(categoryPath) {
  */
 function parseMounting(name) {
   if (/en kit/i.test(name)) return "kit";
-  if (/mont[eé]e/i.test(name)) return "montee";
+  if (/mont[eé]/i.test(name)) return "montee";
   return null;
 }
 

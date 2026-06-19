@@ -705,6 +705,471 @@
     }
   },
   {
+    "productId": 27740063,
+    "sku": "XT-ST126045KN",
+    "name": "Coffret 19\" - 12U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740063",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/04/KX-ST126045KN_2.jpg",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 28011668,
+    "sku": "XT-ST126045MN",
+    "name": "Coffret 19\" - 12U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011668",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/10/KX-ST126045MN_1.jpg",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740064,
+    "sku": "XT-ST126060KN",
+    "name": "Coffret 19\" - 12U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740064",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/03/KX-ST12xx-KN-big.png",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011669,
+    "sku": "XT-ST126060MN",
+    "name": "Coffret 19\" - 12U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011669",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-ST12xx-1-big.png",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 40705123,
+    "sku": "XT-ST126080MN",
+    "name": "Coffret 19\" - 12U 600 x 800 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 800 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=40705123",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/24/XT-8080MN-big.png",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 27740065,
+    "sku": "XT-ST156045KN",
+    "name": "Coffret 19\" - 15U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740065",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/13/KX-ST156045KN_2.jpg",
+    "attrs": {
+      "heightU": 15,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 28011670,
+    "sku": "XT-ST156045MN",
+    "name": "Coffret 19\" - 15U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011670",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/20/KX-ST156045MN_1.jpg",
+    "attrs": {
+      "heightU": 15,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740066,
+    "sku": "XT-ST156060KN",
+    "name": "Coffret 19\" - 15U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740066",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-ST15xxKN-big.png",
+    "attrs": {
+      "heightU": 15,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011671,
+    "sku": "XT-ST156060MN",
+    "name": "Coffret 19\" - 15U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011671",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/11/KX-ST15xx-1-big.png",
+    "attrs": {
+      "heightU": 15,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 40705124,
+    "sku": "XT-ST166080MN",
+    "name": "Coffret 19\" - 16U 600 x 800 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 800 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=40705124",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/24/XT-8080MN-big.png",
+    "attrs": {
+      "heightU": 16,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 27740067,
+    "sku": "XT-ST186045KN",
+    "name": "Coffret 19\" - 18U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740067",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-ST186045KN_2.jpg",
+    "attrs": {
+      "heightU": 18,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 28011672,
+    "sku": "XT-ST186045MN",
+    "name": "Coffret 19\" - 18U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011672",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/06/KX-ST186045MN_1.jpg",
+    "attrs": {
+      "heightU": 18,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740068,
+    "sku": "XT-ST186060KN",
+    "name": "Coffret 19\" - 18U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740068",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/13/KX-ST18xxKN-big.png",
+    "attrs": {
+      "heightU": 18,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011673,
+    "sku": "XT-ST186060MN",
+    "name": "Coffret 19\" - 18U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011673",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/KX-ST18xx-1-big.png",
+    "attrs": {
+      "heightU": 18,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 40705125,
+    "sku": "XT-ST206080MN",
+    "name": "Coffret 19\" - 20U 600 x 800 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 800 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=40705125",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/24/XT-8080MN-big.png",
+    "attrs": {
+      "heightU": 20,
+      "widthMm": 600,
+      "depthMm": 800
+    }
+  },
+  {
+    "productId": 27740069,
+    "sku": "XT-ST226045KN",
+    "name": "Coffret 19\" - 22U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740069",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/10/KX-ST226045KN_2.jpg",
+    "attrs": {
+      "heightU": 22,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 28011674,
+    "sku": "XT-ST226045MN",
+    "name": "Coffret 19\" - 22U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011674",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/11/KX-ST226045MN_1.jpg",
+    "attrs": {
+      "heightU": 22,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740070,
+    "sku": "XT-ST226060KN",
+    "name": "Coffret 19\" - 22U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740070",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/15/KX-ST22xxKN-big.png",
+    "attrs": {
+      "heightU": 22,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011675,
+    "sku": "XT-ST226060MN",
+    "name": "Coffret 19\" - 22U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011675",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-ST22xx-1-big.png",
+    "attrs": {
+      "heightU": 22,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 27740071,
+    "sku": "XT-ST276045KN",
+    "name": "Coffret 19\" - 27U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740071",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/12/KX-ST276045KN_2.jpg",
+    "attrs": {
+      "heightU": 27,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 26864563,
+    "sku": "XT-ST276045MN",
+    "name": "Coffret 19\" - 27U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=26864563",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/16/KX-ST276045MN_1.jpg",
+    "attrs": {
+      "heightU": 27,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740072,
+    "sku": "XT-ST276060KN",
+    "name": "Coffret 19\" - 27U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740072",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-ST27xxKN-big.png",
+    "attrs": {
+      "heightU": 27,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011676,
+    "sku": "XT-ST276060MN",
+    "name": "Coffret 19\" - 27U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011676",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/09/KX-ST27x-1-big.png",
+    "attrs": {
+      "heightU": 27,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 27740073,
+    "sku": "XT-ST66045KN",
+    "name": "Coffret 19\" - 6U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740073",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/17/KX-ST186045KN_2.jpg",
+    "attrs": {
+      "heightU": 6,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 28011677,
+    "sku": "XT-ST66045MN",
+    "name": "Coffret 19\" - 6U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011677",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/09/KX-ST6x-1-big.png",
+    "attrs": {
+      "heightU": 6,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740074,
+    "sku": "XT-ST66060KN",
+    "name": "Coffret 19\" - 6U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740074",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/21/KX-ST6xxKN-big.png",
+    "attrs": {
+      "heightU": 6,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011678,
+    "sku": "XT-ST66060MN",
+    "name": "Coffret 19\" - 6U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011678",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/09/KX-ST6x-1-big.png",
+    "attrs": {
+      "heightU": 6,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 27740075,
+    "sku": "XT-ST96045KN",
+    "name": "Coffret 19\" - 9U 600 x 450 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740075",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/18/KX-ST96045KN_2.jpg",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 28011679,
+    "sku": "XT-ST96045MN",
+    "name": "Coffret 19\" - 9U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 450 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011679",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/06/KX-ST96045MN_1.jpg",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 27740076,
+    "sku": "XT-ST96060KN",
+    "name": "Coffret 19\" - 9U 600 x 600 mm - Noir | En kit",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "kit",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=27740076",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/02/KX-ST9xx-KN-big.png",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 28011680,
+    "sku": "XT-ST96060MN",
+    "name": "Coffret 19\" - 9U 600 x 600 mm - Noire | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces fixe\\Coffrets 19\" profondeur 600 mm",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=28011680",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/03/KX-ST9xx-1-big.png",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
     "productId": 26863855,
     "sku": "332-691712IP55.1",
     "name": "Coffret étanche / outdoor 19\" IP55 - 12U 600 x 450 mm - Gris",
@@ -987,6 +1452,216 @@
       "heightU": 16,
       "widthMm": 600,
       "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632284,
+    "sku": "XT-ST126045MNP",
+    "name": "Coffret sur pieds 19\" - 12U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632284",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632285,
+    "sku": "XT-ST126060MNP",
+    "name": "Coffret sur pieds 19\" - 12U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632285",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 12,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37632286,
+    "sku": "XT-ST156045MNP",
+    "name": "Coffret sur pieds 19\" - 15U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632286",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 15,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632287,
+    "sku": "XT-ST156060MNP",
+    "name": "Coffret sur pieds 19\" - 15U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632287",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 15,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37632288,
+    "sku": "XT-ST186045MNP",
+    "name": "Coffret sur pieds 19\" - 18U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632288",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 18,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632289,
+    "sku": "XT-ST186060MNP",
+    "name": "Coffret sur pieds 19\" - 18U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632289",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 18,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37632290,
+    "sku": "XT-ST226045MNP",
+    "name": "Coffret sur pieds 19\" - 22U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632290",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 22,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632291,
+    "sku": "XT-ST226060MNP",
+    "name": "Coffret sur pieds 19\" - 22U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632291",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 22,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37632292,
+    "sku": "XT-ST276045MNP",
+    "name": "Coffret sur pieds 19\" - 27U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632292",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 27,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632293,
+    "sku": "XT-ST276060MNP",
+    "name": "Coffret sur pieds 19\" - 27U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632293",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 27,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37632294,
+    "sku": "XT-ST66045MNP",
+    "name": "Coffret sur pieds 19\" - 6U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632294",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 6,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632295,
+    "sku": "XT-ST66060MNP",
+    "name": "Coffret sur pieds 19\" - 6U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632295",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 6,
+      "widthMm": 600,
+      "depthMm": 600
+    }
+  },
+  {
+    "productId": 37632296,
+    "sku": "XT-ST96045MNP",
+    "name": "Coffret sur pieds 19\" - 9U 600 x 450 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632296",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 450
+    }
+  },
+  {
+    "productId": 37632297,
+    "sku": "XT-ST96060MNP",
+    "name": "Coffret sur pieds 19\" - 9U 600 x 600 mm - Noir | Monté",
+    "categoryPath": "Baies et coffrets\\Coffrets informatiques\\Coffrets informatiques 19 pouces sur pieds",
+    "family": "coffret-st",
+    "mounting": "montee",
+    "productUrl": "https://www.xeilom.fr/PBSCProduct.asp?PGFLngID=0&ItmID=37632297",
+    "imageUrl": "https://www.xeilom.fr/Files/126457/Img/22/KX-STxx60xxMNP.jpg",
+    "attrs": {
+      "heightU": 9,
+      "widthMm": 600,
+      "depthMm": 600
     }
   },
   {

@@ -2,6 +2,7 @@
 export const USAGE_FAMILIES = {
   serveur: ["serveur"],
   brassage: ["brassage"],
+  "coffret-st": ["coffret-st"],
   etanche: ["etanche-baie", "coffret-etanche"],
 };
 
@@ -9,6 +10,7 @@ export const USAGE_FAMILIES = {
 export const USAGE_LABELS = {
   serveur: "Baie serveur",
   brassage: "Baie de brassage",
+  "coffret-st": "Coffret XT-ST",
   etanche: "Gamme étanche IP55",
 };
 

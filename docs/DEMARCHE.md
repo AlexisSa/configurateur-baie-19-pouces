@@ -149,9 +149,16 @@ window.addEventListener("message", function (event) {
   if (!ALLOWED_ORIGINS.includes(event.origin)) return;
   if (event.data?.type !== "XEILOM_ADD_TO_CART") return;
 
-  AddToCart(event.data.productId);
+  var id = event.data.productId;
+  if (typeof AddToCart === "function") {
+    AddToCart(id); // fiches produit PBSCProduct
+  } else if (typeof OxAddToCart === "function") {
+    OxAddToCart(id, "ItmID=" + id); // pages contenu PBCPPlayer
+  }
 });
 ```
+
+Sur les **pages contenu** (`PBCPPlayer.asp`), `AddToCart` n'existe pas : le pont doit appeler `OxAddToCart(id, "ItmID=" + id)` pour ouvrir le modal AJAX au lieu de rediriger vers le panier.
 
 Le fichier complet se trouve à la racine du projet : `oxatis-bridge.js`.
 

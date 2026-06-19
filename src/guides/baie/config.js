@@ -16,7 +16,8 @@ export const baieGuideConfig = {
       id: "usage",
       recapLabel: "Gamme",
       question: "Quelle gamme vous intéresse ?",
-      description: "Baies serveurs, baies de brassage ou gamme étanche IP55.",
+      description:
+        "Baies serveurs, baies de brassage, coffrets XT-ST ou gamme étanche IP55.",
       options: [
         {
           value: "serveur",
@@ -27,6 +28,11 @@ export const baieGuideConfig = {
           value: "brassage",
           label: "Baie de brassage",
           description: "Brassage réseau 19\"",
+        },
+        {
+          value: "coffret-st",
+          label: "Coffret XT-ST",
+          description: "Coffrets 19\" fixe ou sur pieds",
         },
         {
           value: "etanche",

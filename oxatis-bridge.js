@@ -27,10 +27,29 @@
     return id;
   }
 
-  function addToCartOnOxatis(productId) {
+  function buildCartUrlParams(productId, quantity) {
+    var params = "ItmID=" + productId;
+    var qty = parseInt(quantity, 10);
+    if (Number.isFinite(qty) && qty > 1) {
+      params += "&Qty=" + qty;
+    }
+    return params;
+  }
+
+  function addToCartOnOxatis(productId, quantity) {
     if (typeof window.AddToCart === "function") {
       window.AddToCart(productId);
       return "AddToCart";
+    }
+    // Pages contenu (PBCPPlayer) : pas de AddToCart/PostFormData, mais OxAddToCart oui.
+    var urlParams = buildCartUrlParams(productId, quantity);
+    if (typeof window.OxAddToCart === "function") {
+      window.OxAddToCart(productId, urlParams);
+      return "OxAddToCart";
+    }
+    if (window.oxCart && typeof window.oxCart.oxAddToCart === "function") {
+      window.oxCart.oxAddToCart(productId, urlParams);
+      return "oxCart.oxAddToCart";
     }
     window.location.href =
       "https://www.xeilom.fr/PBShoppingCart.asp?ItmID=" + productId;
@@ -86,7 +105,7 @@
       return;
     }
 
-    var method = addToCartOnOxatis(productId);
+    var method = addToCartOnOxatis(productId, data.quantity);
     replyToIframe(event.source, event.origin, {
       type: ADD_TO_CART_RESULT,
       success: true,

@@ -1,5 +1,4 @@
 import { useEffect, useMemo } from "react";
-import { Header } from "../../xeilom-kit/components/Header.jsx";
 import { ToastContainer } from "../../xeilom-kit/components/ToastContainer.jsx";
 import { useAddToCart, useEmbedResize, useToasts } from "../../xeilom-kit/hooks/index.js";
 import { isEmbedMode } from "../../xeilom-kit/utils/embedMode.js";
@@ -80,11 +79,6 @@ export function GuideEngine({ config, catalog }) {
 
   return (
     <>
-      <Header
-        eyebrow={config.meta.eyebrow ?? "Xeilom · Guide de choix"}
-        title={config.meta.title}
-      />
-
       <main className={`guide-main${isEmbedMode() ? " guide-main--embed" : ""}`}>
         <div className="guide-layout">
           <GuideStepper
