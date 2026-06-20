@@ -63,7 +63,7 @@ export function useAddToCart() {
       if (pendingRef.current == null) return;
       window.clearTimeout(pendingRef.current.timeoutId);
       pendingRef.current = null;
-      setStatus(event.data.success ? "success" : "fallback");
+      setStatus(event.data.success ? "success" : "error");
     };
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);

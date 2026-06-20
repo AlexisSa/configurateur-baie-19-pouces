@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ToastContainer } from "../../xeilom-kit/components/ToastContainer.jsx";
-import { useAddToCart, useEmbedResize, useToasts } from "../../xeilom-kit/hooks/index.js";
+import {
+  useAddToCart,
+  useEmbedContext,
+  useEmbedResize,
+  useToasts,
+} from "../../xeilom-kit/hooks/index.js";
 import { isEmbedMode } from "../../xeilom-kit/utils/embedMode.js";
+import { buildGuidePricing } from "./guidePricing.js";
 import { GuideProgress } from "./GuideProgress.jsx";
 import { GuideResult } from "./GuideResult.jsx";
 import { GuideStepper } from "./GuideStepper.jsx";
@@ -16,11 +22,13 @@ import { useGuideState } from "./useGuideState.js";
  */
 export function GuideEngine({ config, catalog }) {
   useEmbedResize();
+  const { pricingTierCode } = useEmbedContext();
 
   const { toasts, addToast, removeToast } = useToasts();
   const { status: cartStatus, addToCart } = useAddToCart();
   const guide = useGuideState(config);
   const [selectedAccessoryIds, setSelectedAccessoryIds] = useState([]);
+  const [accessoryQuantities, setAccessoryQuantities] = useState({});
 
   const currentStepOptions = useMemo(() => {
     if (!guide.currentStep || guide.isComplete) return [];
@@ -63,16 +71,42 @@ export function GuideEngine({ config, catalog }) {
     return config.getAccessories?.(guide.answers, resolvedProduct, catalog) ?? [];
   }, [catalog, config, guide.answers, guide.isComplete, resolvedProduct]);
 
+  const pricing = useMemo(
+    () =>
+      buildGuidePricing({
+        product: resolvedProduct,
+        accessories,
+        selectedAccessoryIds,
+        accessoryQuantities,
+        pricingTierCode,
+      }),
+    [
+      accessoryQuantities,
+      accessories,
+      pricingTierCode,
+      resolvedProduct,
+      selectedAccessoryIds,
+    ],
+  );
+
   useEffect(() => {
     if (!guide.isComplete) {
       setSelectedAccessoryIds([]);
+      setAccessoryQuantities({});
     }
   }, [guide.isComplete]);
 
   const toggleAccessory = useCallback(
     (id) => {
       setSelectedAccessoryIds((prev) => {
-        if (prev.includes(id)) return prev.filter((item) => item !== id);
+        if (prev.includes(id)) {
+          setAccessoryQuantities((quantities) => {
+            const next = { ...quantities };
+            delete next[id];
+            return next;
+          });
+          return prev.filter((item) => item !== id);
+        }
 
         const accessory = accessories.find((item) => item.id === id);
         const group = accessory?.exclusiveGroup;
@@ -84,24 +118,42 @@ export function GuideEngine({ config, catalog }) {
               })
             : prev;
 
+        setAccessoryQuantities((quantities) => ({ ...quantities, [id]: 1 }));
         return [...withoutGroup, id];
       });
     },
     [accessories],
   );
 
+  const setAccessoryQuantity = useCallback(
+    (id, quantity) => {
+      const accessory = accessories.find((item) => item.id === id);
+      const max = accessory?.maxQuantity ?? 1;
+      const next = Math.min(max, Math.max(1, quantity));
+      setAccessoryQuantities((prev) => ({ ...prev, [id]: next }));
+    },
+    [accessories],
+  );
+
   const handleRestart = useCallback(() => {
     setSelectedAccessoryIds([]);
+    setAccessoryQuantities({});
     guide.restart();
   }, [guide.restart]);
 
   useEffect(() => {
     if (cartStatus === "success") {
+      const totalQty =
+        1 +
+        selectedAccessoryIds.reduce(
+          (sum, id) => sum + (accessoryQuantities[id] ?? 1),
+          0,
+        );
       addToast(
         "success",
         "Ajouté au panier",
         selectedAccessoryIds.length
-          ? "La baie et les accessoires ont été ajoutés à votre panier."
+          ? `La baie et les accessoires (${totalQty} articles) ont été ajoutés à votre panier.`
           : "Le produit a été ajouté à votre panier.",
       );
     }
@@ -112,7 +164,14 @@ export function GuideEngine({ config, catalog }) {
         "Ouverture du panier Xeilom pour finaliser l'ajout.",
       );
     }
-  }, [addToast, cartStatus, selectedAccessoryIds.length]);
+    if (cartStatus === "error") {
+      addToast(
+        "error",
+        "Ajout impossible",
+        "Le panier n'a pas répondu. Réessayez ou ajoutez les produits depuis le site.",
+      );
+    }
+  }, [accessoryQuantities, addToast, cartStatus, selectedAccessoryIds]);
 
   const handleAddToCart = () => {
     if (!resolvedProduct) return;
@@ -120,7 +179,10 @@ export function GuideEngine({ config, catalog }) {
     const items = [{ productId: resolvedProduct.productId, quantity: 1 }];
     for (const accessory of accessories) {
       if (selectedAccessoryIds.includes(accessory.id)) {
-        items.push({ productId: accessory.productId, quantity: 1 });
+        items.push({
+          productId: accessory.productId,
+          quantity: accessoryQuantities[accessory.id] ?? 1,
+        });
       }
     }
 
@@ -132,10 +194,16 @@ export function GuideEngine({ config, catalog }) {
 
   const totalSteps = config.steps.length;
   const stepNumber = Math.min(guide.stepIndex + 1, totalSteps);
-  // +1 pour traiter le résultat comme étape finale → progression plus régulière.
   const progressPercent = guide.isComplete
     ? 100
     : Math.round(((guide.stepIndex + 1) / (totalSteps + 1)) * 100);
+
+  const cartItemCount =
+    1 +
+    selectedAccessoryIds.reduce(
+      (sum, id) => sum + (accessoryQuantities[id] ?? 1),
+      0,
+    );
 
   return (
     <>
@@ -177,9 +245,14 @@ export function GuideEngine({ config, catalog }) {
                 product={resolvedProduct}
                 accessories={accessories}
                 selectedAccessoryIds={selectedAccessoryIds}
+                accessoryQuantities={accessoryQuantities}
                 onToggleAccessory={toggleAccessory}
+                onAccessoryQuantityChange={setAccessoryQuantity}
                 groupAccessories={config.groupAccessories}
                 cartStatus={cartStatus}
+                cartItemCount={cartItemCount}
+                pricing={pricing}
+                pricingTierCode={pricingTierCode}
                 onAddToCart={handleAddToCart}
                 onRestart={handleRestart}
                 onBack={() => guide.goToStep(config.steps.length - 1)}

@@ -16,6 +16,11 @@ export const ACCESSORY_CATEGORIES = [
     hint: null,
   },
   {
+    id: "cablage",
+    label: "Gestion des câbles",
+    hint: "Choisissez la version standard ou grande capacité.",
+  },
+  {
     id: "alimentation",
     label: "Alimentation",
     hint: "Choisissez une version — avec ou sans interrupteur.",
@@ -85,6 +90,7 @@ export const BAIE_ACCESSORIES = [
     productUrl:
       "https://www.xeilom.fr/ventilateur-sans-thermostat-19-1u-4-ventilateurs-profondeur-350-mm-noir",
     compatUsage: ["serveur", "brassage"],
+    maxQuantity: 3,
   },
   {
     id: "ventilateur",
@@ -109,6 +115,103 @@ export const BAIE_ACCESSORIES = [
     compatUsage: ["coffret-st"],
   },
   {
+    id: "goulotte-26",
+    category: "cablage",
+    productId: 40698572,
+    sku: "XT-6-26-2G",
+    label: "Lot de 2 goulottes verticales",
+    description: "Baie 26U — largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-26u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 26,
+  },
+  {
+    id: "goulotte-32",
+    category: "cablage",
+    productId: 40698573,
+    sku: "XT-6-32-2G",
+    label: "Lot de 2 goulottes verticales",
+    description: "Baie 32U — largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-32u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 32,
+  },
+  {
+    id: "goulotte-36",
+    category: "cablage",
+    productId: 40698574,
+    sku: "XT-6-36-2G",
+    label: "Lot de 2 goulottes verticales",
+    description: "Baie 36U — largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-36u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 36,
+  },
+  {
+    id: "goulotte-42",
+    category: "cablage",
+    productId: 36433657,
+    sku: "XT-6-42-2G",
+    label: "Lot de 2 goulottes verticales",
+    description: "Baie 42U — largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-42u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 42,
+    exclusiveGroup: "goulotte",
+  },
+  {
+    id: "goulotte-42-gp",
+    category: "cablage",
+    productId: 41802948,
+    sku: "XT-6-42-2G-GP",
+    label: "Lot de 2 goulottes verticales",
+    description: "Grande capacité — baie 42U, largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/02/KX-6-xx-2G-GP-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-grande-capacite-pour-baies-42u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 42,
+    exclusiveGroup: "goulotte",
+  },
+  {
+    id: "goulotte-47",
+    category: "cablage",
+    productId: 39529492,
+    sku: "XT-6-47-2G",
+    label: "Lot de 2 goulottes verticales",
+    description: "Baie 47U — largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-47u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 47,
+    exclusiveGroup: "goulotte",
+  },
+  {
+    id: "goulotte-47-gp",
+    category: "cablage",
+    productId: 41802950,
+    sku: "XT-6-47-2G-GP",
+    label: "Lot de 2 goulottes verticales",
+    description: "Grande capacité — baie 47U, largeur 800 mm",
+    imageUrl: "https://www.xeilom.fr/Files/126457/Img/02/KX-6-xx-2G-GP-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-grande-capacite-pour-baies-47u",
+    compatUsage: ["serveur", "brassage"],
+    compatMinWidthMm: 800,
+    compatHeightU: 47,
+    exclusiveGroup: "goulotte",
+  },
+  {
     id: "bandeau-sans-inter",
     category: "alimentation",
     productId: 27399790,
@@ -119,6 +222,7 @@ export const BAIE_ACCESSORIES = [
     productUrl: "https://www.xeilom.fr/bandeau-electrique-8-prises-2pt-1u-19-sans-interrupteur",
     compatUsage: ["serveur", "brassage", "coffret-st"],
     exclusiveGroup: "bandeau-electrique",
+    maxQuantity: 2,
   },
   {
     id: "bandeau-avec-inter",
@@ -131,6 +235,7 @@ export const BAIE_ACCESSORIES = [
     productUrl: "https://www.xeilom.fr/bandeau-electrique-8-prises-2pt-1u-19-avec-interrupteur",
     compatUsage: ["serveur", "brassage", "coffret-st"],
     exclusiveGroup: "bandeau-electrique",
+    maxQuantity: 2,
   },
 ];
 
@@ -159,7 +264,8 @@ export function groupAccessories(accessories) {
       ((category.id === "ventilation" &&
         items.some((item) => item.id.startsWith("caisson-")) &&
         items.some((item) => item.id === "ventilateur-rack")) ||
-        (category.id === "alimentation" && items.length > 1));
+        (category.id === "alimentation" && items.length > 1) ||
+        (category.id === "cablage" && items.length > 1));
 
     return [{ ...category, hint: showHint ? category.hint : null, items }];
   });
@@ -173,12 +279,16 @@ export function getAccessories(answers) {
   if (!usage) return [];
 
   const depthMm = answers.depth ? Number.parseInt(answers.depth, 10) : null;
+  const widthMm = answers.width ? Number.parseInt(answers.width, 10) : null;
+  const heightU = answers.height ? Number.parseInt(answers.height, 10) : null;
 
   return BAIE_ACCESSORIES.filter((item) => {
     if (!item.compatUsage.includes(usage)) return false;
-    if (item.compatDepthMm != null) {
-      return depthMm === item.compatDepthMm;
+    if (item.compatDepthMm != null && depthMm !== item.compatDepthMm) return false;
+    if (item.compatMinWidthMm != null) {
+      if (widthMm == null || widthMm < item.compatMinWidthMm) return false;
     }
+    if (item.compatHeightU != null && heightU !== item.compatHeightU) return false;
     return true;
   });
 }

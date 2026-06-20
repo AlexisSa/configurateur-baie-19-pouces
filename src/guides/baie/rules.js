@@ -3,15 +3,17 @@ export const USAGE_FAMILIES = {
   serveur: ["serveur"],
   brassage: ["brassage"],
   "coffret-st": ["coffret-st"],
-  etanche: ["etanche-baie", "coffret-etanche"],
+  "etanche-baie": ["etanche-baie"],
+  "coffret-etanche": ["coffret-etanche"],
 };
 
 /** @type {Record<string, string>} */
 export const USAGE_LABELS = {
-  serveur: "Baie serveur",
-  brassage: "Baie de brassage",
-  "coffret-st": "Coffret 19\"",
-  etanche: "Gamme étanche IP55",
+  serveur: "Baie serveur 19 pouces",
+  brassage: "Baie de brassage 19 pouces",
+  "coffret-st": "Coffret 19 pouces",
+  "etanche-baie": "Baie étanche IP55 19 pouces",
+  "coffret-etanche": "Coffret étanche IP55 19 pouces",
 };
 
 /** @type {{ value: "kit"|"montee", label: string, description: string }[]} */
@@ -24,9 +26,23 @@ export const MOUNTING_OPTIONS = [
   { value: "kit", label: "En kit", description: "À assembler sur site" },
 ];
 
+/** @type {{ value: "fixe"|"sur-pieds", label: string, description: string }[]} */
+export const STAND_OPTIONS = [
+  {
+    value: "fixe",
+    label: "Fixe",
+    description: "Coffret mural ou sur socle",
+  },
+  {
+    value: "sur-pieds",
+    label: "Sur pieds",
+    description: "Coffret monté sur pieds avec roulettes",
+  },
+];
+
 /**
- * @param {import("../../core/types.js").CatalogProduct[]} catalog
  * @param {string} usage
+ * @param {import("../../core/types.js").CatalogProduct[]} catalog
  */
 export function filterByUsage(catalog, usage) {
   const families = USAGE_FAMILIES[usage] ?? [];
@@ -72,7 +88,18 @@ export function matchesDepth(depthMm, product) {
  */
 export function matchesMounting(mounting, product) {
   if (!mounting) return true;
+  if (product.mounting == null) return false;
   return product.mounting === mounting;
+}
+
+/**
+ * @param {string} stand
+ * @param {import("../../core/types.js").CatalogProduct} product
+ */
+export function matchesStand(stand, product) {
+  if (!stand) return true;
+  if (product.standType == null) return true;
+  return product.standType === stand;
 }
 
 /**
@@ -83,31 +110,14 @@ export function filterCandidates(answers, catalog) {
   const pool = filterByUsage(catalog, answers.usage);
   if (!pool.length) return [];
 
-  let candidates = pool.filter((product) => matchesHeight(answers.height, product));
-  if (!candidates.length) candidates = pool;
-
-  if (answers.width) {
-    const byWidth = candidates.filter((product) =>
-      matchesWidth(answers.width, product),
-    );
-    if (byWidth.length) candidates = byWidth;
-  }
-
-  if (answers.depth) {
-    const byDepth = candidates.filter((product) =>
-      matchesDepth(answers.depth, product),
-    );
-    if (byDepth.length) candidates = byDepth;
-  }
-
-  if (answers.mounting) {
-    const byMounting = candidates.filter((product) =>
-      matchesMounting(answers.mounting, product),
-    );
-    if (byMounting.length) candidates = byMounting;
-  }
-
-  return candidates;
+  return pool.filter((product) => {
+    if (answers.height && !matchesHeight(answers.height, product)) return false;
+    if (answers.width && !matchesWidth(answers.width, product)) return false;
+    if (answers.depth && !matchesDepth(answers.depth, product)) return false;
+    if (answers.stand && !matchesStand(answers.stand, product)) return false;
+    if (answers.mounting && !matchesMounting(answers.mounting, product)) return false;
+    return true;
+  });
 }
 
 /**
@@ -177,6 +187,21 @@ export function getAvailableDepths(usage, heightU, widthMm, catalog) {
  * @param {Record<string, string>} answers
  * @param {import("../../core/types.js").CatalogProduct[]} catalog
  */
+export function getAvailableStands(answers, catalog) {
+  if (answers.usage !== "coffret-st") return [];
+
+  const candidates = filterCandidates({ ...answers, stand: "", mounting: "" }, catalog);
+  const stands = new Set(
+    candidates.map((product) => product.standType).filter(Boolean),
+  );
+
+  return STAND_OPTIONS.filter((option) => stands.has(option.value));
+}
+
+/**
+ * @param {Record<string, string>} answers
+ * @param {import("../../core/types.js").CatalogProduct[]} catalog
+ */
 export function getAvailableMountings(answers, catalog) {
   const candidates = filterCandidates({ ...answers, mounting: "" }, catalog);
   const mountings = new Set(
@@ -206,6 +231,15 @@ export function getStepOptions(stepId, answers, catalog) {
     );
   }
   if (
+    stepId === "stand" &&
+    answers.usage === "coffret-st" &&
+    answers.height &&
+    answers.width &&
+    answers.depth
+  ) {
+    return getAvailableStands(answers, catalog);
+  }
+  if (
     stepId === "mounting" &&
     answers.usage &&
     answers.height &&
@@ -225,10 +259,42 @@ export function formatAnswer(stepId, value) {
   if (stepId === "usage") return USAGE_LABELS[value] ?? value;
   if (stepId === "height") return `${value} U`;
   if (stepId === "width" || stepId === "depth") return `${value} mm`;
+  if (stepId === "stand") {
+    return STAND_OPTIONS.find((option) => option.value === value)?.label ?? value;
+  }
   if (stepId === "mounting") {
     return MOUNTING_OPTIONS.find((option) => option.value === value)?.label ?? value;
   }
   return value;
+}
+
+/**
+ * @param {Record<string, string>} answers
+ * @returns {string[]}
+ */
+export function buildConfigurationSummary(answers) {
+  const parts = [];
+
+  if (answers.usage) {
+    parts.push(USAGE_LABELS[answers.usage] ?? answers.usage);
+  }
+  if (answers.height) parts.push(`${answers.height} U`);
+  if (answers.width) parts.push(`${answers.width} mm`);
+  if (answers.depth) parts.push(`${answers.depth} mm`);
+  if (answers.stand) {
+    parts.push(
+      STAND_OPTIONS.find((option) => option.value === answers.stand)?.label ??
+        answers.stand,
+    );
+  }
+  if (answers.mounting) {
+    parts.push(
+      MOUNTING_OPTIONS.find((option) => option.value === answers.mounting)?.label ??
+        answers.mounting,
+    );
+  }
+
+  return parts;
 }
 
 /**
@@ -240,15 +306,23 @@ export function resolveProduct(answers, catalog) {
   const candidates = filterCandidates(answers, catalog);
   if (!candidates.length) return null;
 
+  if (answers.mounting) {
+    return toResolved(candidates[0], answers);
+  }
+
+  const withMounting = candidates.filter((product) => product.mounting != null);
+  const pool = withMounting.length ? withMounting : candidates;
   const preferred =
-    candidates.find((product) => product.mounting === "montee") ?? candidates[0];
-  return toResolved(preferred);
+    pool.find((product) => product.mounting === "montee") ?? pool[0];
+
+  return toResolved(preferred, answers);
 }
 
 /**
  * @param {import("../../core/types.js").CatalogProduct} product
+ * @param {Record<string, string>} answers
  */
-function toResolved(product) {
+function toResolved(product, answers) {
   return {
     productId: product.productId,
     sku: product.sku,
@@ -256,5 +330,8 @@ function toResolved(product) {
     description: product.categoryPath.split("\\").slice(-1)[0],
     imageUrl: product.imageUrl,
     productUrl: product.productUrl,
+    configurationSummary: buildConfigurationSummary(answers),
+    mounting: product.mounting,
+    standType: product.standType,
   };
 }

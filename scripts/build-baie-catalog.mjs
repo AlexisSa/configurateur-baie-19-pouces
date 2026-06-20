@@ -63,6 +63,26 @@ function parseAttrsFromName(name) {
 }
 
 /**
+ * @param {string} sku
+ * @param {string} categoryPath
+ * @returns {"fixe"|"sur-pieds"}
+ */
+function parseStandType(sku, categoryPath) {
+  if (/MNP$/i.test(sku) || /sur pieds/i.test(categoryPath)) return "sur-pieds";
+  return "fixe";
+}
+
+/**
+ * @param {import("../../core/types.js").CatalogProduct} product
+ */
+function isConfigurableRack(product) {
+  if (product.family === "coffret-st") {
+    return product.attrs.heightU != null;
+  }
+  return product.attrs.heightU != null && product.attrs.widthMm != null;
+}
+
+/**
  * @param {string} url
  * @returns {string|null}
  */
@@ -105,6 +125,11 @@ for (const row of rows) {
   const productId = Number.parseInt(row[index.OxatisId] ?? "", 10);
   if (!Number.isFinite(productId)) continue;
 
+  const sku = row[index.ItemSKU] ?? "";
+  const attrs = parseAttrsFromName(name);
+
+  if (!isConfigurableRack({ family, attrs })) continue;
+
   const imageRaw =
     row[index.UrlBigImgFileName] ||
     row[index.BigImgFileName] ||
@@ -113,14 +138,15 @@ for (const row of rows) {
 
   catalog.push({
     productId,
-    sku: row[index.ItemSKU] ?? "",
+    sku,
     name,
     categoryPath,
     family,
     mounting: parseMounting(name),
+    standType: family === "coffret-st" ? parseStandType(sku, categoryPath) : null,
     productUrl: row[index.ProductUrl] ?? "",
     imageUrl: normalizeImageUrl(imageRaw),
-    attrs: parseAttrsFromName(name),
+    attrs,
   });
 }
 

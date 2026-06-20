@@ -13,9 +13,11 @@ export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack 
   const hasImages = step.options.some((option) => option.imageUrl);
   const hasDescriptions = step.options.some((option) => option.description);
 
-  let variant = "value";
-  if (hasImages) variant = "visual";
-  else if (hasDescriptions) variant = "text";
+  let variant = step.tileVariant ?? "value";
+  if (!step.tileVariant) {
+    if (hasImages) variant = "visual";
+    else if (hasDescriptions) variant = "text";
+  }
 
   return (
     <section className="panel guide-step">

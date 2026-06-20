@@ -13,8 +13,10 @@ const GAMME_IMAGES = {
     "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
   "coffret-st":
     "https://www.xeilom.fr/Files/126457/Img/10/KX-ST126045MN_1.jpg",
-  etanche:
+  "etanche-baie":
     "https://www.xeilom.fr/Files/126457/Img/22/BAIEIP55-246060GS_1.jpg",
+  "coffret-etanche":
+    "https://www.xeilom.fr/Files/126457/Img/15/332-691707IP55-1_1.jpg",
 };
 
 /** @type {import("../../core/types.js").GuideConfig} */
@@ -33,31 +35,38 @@ export const baieGuideConfig = {
       options: [
         {
           value: "serveur",
-          label: "Baie serveur",
+          label: "Baie serveur 19 pouces",
           imageUrl: GAMME_IMAGES.serveur,
           description:
-            "Grande profondeur (800 à 1200 mm), charge élevée. Pour serveurs, onduleurs et équipements lourds en salle technique.",
+            "Baie 19 pouces — grande profondeur (800 à 1200 mm), charge élevée. Pour serveurs, onduleurs et équipements lourds.",
         },
         {
           value: "brassage",
-          label: "Baie de brassage",
+          label: "Baie de brassage 19 pouces",
           imageUrl: GAMME_IMAGES.brassage,
           description:
-            "Profondeur réduite (600 à 800 mm). Optimisée pour switchs, panneaux de brassage et câblage réseau.",
+            "Baie 19 pouces — profondeur réduite (600 à 800 mm). Optimisée pour switchs, panneaux de brassage et câblage réseau.",
         },
         {
           value: "coffret-st",
-          label: "Coffret 19\"",
+          label: "Coffret 19 pouces",
           imageUrl: GAMME_IMAGES["coffret-st"],
           description:
-            "Armoire compacte, fixe ou sur pieds (6 à 27 U). Idéale pour local technique, bureau ou point de distribution.",
+            "Coffret 19 pouces compact, fixe ou sur pieds (6 à 27 U). Idéal pour local technique, bureau ou point de distribution.",
         },
         {
-          value: "etanche",
-          label: "Gamme étanche IP55",
-          imageUrl: GAMME_IMAGES.etanche,
+          value: "etanche-baie",
+          label: "Baie étanche IP55 19 pouces",
+          imageUrl: GAMME_IMAGES["etanche-baie"],
           description:
-            "Protection poussière et projections d'eau. Baies et coffrets pour extérieur, industrie ou environnement sévère.",
+            "Baie 19 pouces IP55 — protection poussière et projections d'eau. 24 à 42 U pour extérieur ou environnement sévère.",
+        },
+        {
+          value: "coffret-etanche",
+          label: "Coffret étanche IP55 19 pouces",
+          imageUrl: GAMME_IMAGES["coffret-etanche"],
+          description:
+            "Coffret 19 pouces IP55 — 7 à 20 U, outdoor ou avec panneaux amovibles. Idéal en point de distribution extérieur.",
         },
       ],
     },
@@ -66,6 +75,7 @@ export const baieGuideConfig = {
       recapLabel: "Hauteur",
       question: "Quelle hauteur utile (en U) ?",
       description: "Hauteurs disponibles dans notre catalogue pour cette gamme.",
+      tileVariant: "text",
       options: [],
     },
     {
@@ -73,6 +83,7 @@ export const baieGuideConfig = {
       recapLabel: "Largeur",
       question: "Quelle largeur (mm) ?",
       description: "Largeur utile de la baie, en millimètres.",
+      tileVariant: "text",
       options: [],
     },
     {
@@ -80,6 +91,15 @@ export const baieGuideConfig = {
       recapLabel: "Profondeur",
       question: "Quelle profondeur (mm) ?",
       description: "Profondeur utile de la baie, en millimètres.",
+      tileVariant: "text",
+      options: [],
+    },
+    {
+      id: "stand",
+      recapLabel: "Pose",
+      question: "Fixe ou sur pieds ?",
+      description: "Choisissez le type de pose pour votre coffret.",
+      tileVariant: "text",
       options: [],
     },
     {
@@ -87,6 +107,7 @@ export const baieGuideConfig = {
       recapLabel: "Montage",
       question: "En kit ou montée ?",
       description: "Version assemblée en usine ou à monter sur site.",
+      tileVariant: "text",
       options: [],
     },
   ],
