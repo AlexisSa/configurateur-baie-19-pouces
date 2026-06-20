@@ -45,9 +45,7 @@ function buildCartFallbackUrl(items) {
   const params = items
     .map((item) => {
       const qty = Number(item.quantity) || 1;
-      return qty > 1
-        ? `ItmID=${item.productId}&Qty=${qty}`
-        : `ItmID=${item.productId}`;
+      return `ItmID=${item.productId}&itemQty=${qty}`;
     })
     .join("&");
   return `${OXATIS_CART_BASE_URL}?${params}`;

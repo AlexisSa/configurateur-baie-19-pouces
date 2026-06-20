@@ -34,8 +34,9 @@
   function buildCartUrlParams(productId, quantity) {
     var params = "ItmID=" + productId;
     var qty = parseInt(quantity, 10);
-    if (Number.isFinite(qty) && qty > 1) {
-      params += "&Qty=" + qty;
+    // Oxatis attend itemQty (storefront API), pas Qty — Qty est ignoré à l'ajout.
+    if (Number.isFinite(qty) && qty >= 1) {
+      params += "&itemQty=" + qty;
     }
     return params;
   }
@@ -51,10 +52,6 @@
   }
 
   function addToCartOnOxatis(productId, quantity) {
-    if (typeof window.AddToCart === "function") {
-      window.AddToCart(productId);
-      return "AddToCart";
-    }
     var urlParams = buildCartUrlParams(productId, quantity);
     if (typeof window.OxAddToCart === "function") {
       window.OxAddToCart(productId, urlParams);
@@ -63,6 +60,10 @@
     if (window.oxCart && typeof window.oxCart.oxAddToCart === "function") {
       window.oxCart.oxAddToCart(productId, urlParams);
       return "oxCart.oxAddToCart";
+    }
+    if (typeof window.AddToCart === "function") {
+      window.AddToCart(productId);
+      return "AddToCart";
     }
     window.location.href =
       "https://www.xeilom.fr/PBShoppingCart.asp?" + urlParams;
@@ -73,8 +74,8 @@
     var url =
       "/PBShoppingCart.asp?ajaxmode=1&cartRelatedProducts=1&ItmID=" + productId;
     var qty = parseInt(quantity, 10);
-    if (Number.isFinite(qty) && qty > 1) {
-      url += "&Qty=" + qty;
+    if (Number.isFinite(qty) && qty >= 1) {
+      url += "&itemQty=" + qty;
     }
 
     if (typeof fetch === "function") {
