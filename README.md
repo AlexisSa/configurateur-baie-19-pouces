@@ -13,6 +13,19 @@ npm run dev
 - Guide : [http://localhost:5173/baie](http://localhost:5173/baie)
 - Test iframe : [http://localhost:5173/host/](http://localhost:5173/host/)
 
+## Qualité du code
+
+```bash
+npm run lint          # ESLint (flat config)
+npm run format        # Prettier — applique le formatage
+npm run format:check  # Prettier — vérifie sans modifier
+npm test              # Vitest
+```
+
+Un workflow CI (`.github/workflows/ci.yml`) exécute lint + format + tests + build sur chaque push et pull request.
+
+> Tarifs B2B : en production, la catégorie tarifaire n'est acceptée que via `postMessage` depuis une origine Xeilom de confiance. L'override `?pricingTier=` reste disponible **uniquement en développement**.
+
 ## Déploiement Vercel
 
 Connecter le repo GitHub — la commande `npm run build` suffit (`catalog.json` est versionné).

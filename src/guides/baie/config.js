@@ -1,18 +1,16 @@
 import {
   formatAnswer,
   getStepOptions,
+  isStepVisible,
   resolveProduct,
 } from "./rules.js";
 import { getAccessories, groupAccessories } from "./accessories.js";
 
 /** Illustrations des gammes — versions montées (photos catalogue Xeilom). */
 const GAMME_IMAGES = {
-  serveur:
-    "https://www.xeilom.fr/Files/126457/Img/18/S6-600x1000_1.png",
-  brassage:
-    "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
-  "coffret-st":
-    "https://www.xeilom.fr/Files/126457/Img/10/KX-ST126045MN_1.jpg",
+  serveur: "https://www.xeilom.fr/Files/126457/Img/18/S6-600x1000_1.png",
+  brassage: "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
+  "coffret-st": "https://www.xeilom.fr/Files/126457/Img/10/KX-ST126045MN_1.jpg",
   "etanche-baie":
     "https://www.xeilom.fr/Files/126457/Img/22/BAIEIP55-246060GS_1.jpg",
   "coffret-etanche":
@@ -74,7 +72,8 @@ export const baieGuideConfig = {
       id: "height",
       recapLabel: "Hauteur",
       question: "Quelle hauteur utile (en U) ?",
-      description: "Hauteurs disponibles dans notre catalogue pour cette gamme.",
+      description:
+        "Hauteurs disponibles dans notre catalogue pour cette gamme.",
       tileVariant: "text",
       options: [],
     },
@@ -91,6 +90,15 @@ export const baieGuideConfig = {
       recapLabel: "Profondeur",
       question: "Quelle profondeur (mm) ?",
       description: "Profondeur utile de la baie, en millimètres.",
+      tileVariant: "text",
+      options: [],
+    },
+    {
+      id: "coffretVariant",
+      recapLabel: "Modèle",
+      question: "Quel modèle de coffret étanche ?",
+      description:
+        "Outdoor compact, panneaux latéraux amovibles ou porte vitrée selon vos besoins d'accès.",
       tileVariant: "text",
       options: [],
     },
@@ -112,6 +120,7 @@ export const baieGuideConfig = {
     },
   ],
   getStepOptions,
+  isStepVisible,
   getAccessories,
   groupAccessories,
   formatAnswer,

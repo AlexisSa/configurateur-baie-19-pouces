@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import { GuideAccessories } from "./GuideAccessories.jsx";
 import { formatPriceHT, getLinePrice } from "./guidePricing.js";
+import { hideBrokenImage } from "./imageFallback.js";
+import { useHeadingFocus } from "./useHeadingFocus.js";
 
 /**
  * @param {{
@@ -55,16 +57,22 @@ export function GuideResult({
   onRestart,
   onBack,
 }) {
+  const headingRef = useHeadingFocus(product?.sku ?? "empty", {
+    focusOnMount: true,
+  });
+
   if (!product) {
     return (
       <section className="panel guide-result guide-result--empty">
         <div className="guide-result-head guide-result-head--empty">
           <SearchX size={20} strokeWidth={2.2} aria-hidden />
           <div>
-            <h2 className="section-title">Aucune correspondance</h2>
+            <h2 className="section-title" ref={headingRef} tabIndex={-1}>
+              Aucune correspondance
+            </h2>
             <p className="guide-result-desc">
-              Aucun produit ne correspond à vos critères. Modifiez vos réponses ou
-              contactez Xeilom pour un conseil personnalisé.
+              Aucun produit ne correspond à vos critères. Modifiez vos réponses
+              ou contactez Xeilom pour un conseil personnalisé.
             </p>
           </div>
         </div>
@@ -120,7 +128,9 @@ export function GuideResult({
           </span>
         </div>
         {pricing.tierLabel && (
-          <p className="guide-result-pricing-tier">Tarif : {pricing.tierLabel}</p>
+          <p className="guide-result-pricing-tier">
+            Tarif : {pricing.tierLabel}
+          </p>
         )}
         {pricing.disclaimer && (
           <p className="guide-result-pricing-note">{pricing.disclaimer}</p>
@@ -132,8 +142,15 @@ export function GuideResult({
   return (
     <section className="panel guide-result">
       <header className="guide-result-head">
-        <BadgeCheck size={20} strokeWidth={2.2} className="guide-result-head-icon" aria-hidden />
-        <h2 className="section-title">Votre baie recommandée</h2>
+        <BadgeCheck
+          size={20}
+          strokeWidth={2.2}
+          className="guide-result-head-icon"
+          aria-hidden
+        />
+        <h2 className="section-title" ref={headingRef} tabIndex={-1}>
+          Votre baie recommandée
+        </h2>
       </header>
 
       {product.configurationSummary?.length > 0 && (
@@ -154,6 +171,7 @@ export function GuideResult({
               alt=""
               className="product-visual"
               loading="lazy"
+              onError={hideBrokenImage}
             />
           </div>
         )}

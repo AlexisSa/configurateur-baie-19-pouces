@@ -1,0 +1,5 @@
+dist
+node_modules
+src/guides/baie/catalog.json
+xeilom-kit/data/pricingMatrix.json
+package-lock.json

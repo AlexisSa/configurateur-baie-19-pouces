@@ -8,6 +8,8 @@ import {
 } from "../../xeilom-kit/hooks/index.js";
 import { isEmbedMode } from "../../xeilom-kit/utils/embedMode.js";
 import { buildGuidePricing } from "./guidePricing.js";
+import { findLastReachableStepIndex } from "./guideNavigation.js";
+import { getVisibleGuideSteps } from "./guideStepVisibility.js";
 import { GuideProgress } from "./GuideProgress.jsx";
 import { GuideResult } from "./GuideResult.jsx";
 import { GuideStepper } from "./GuideStepper.jsx";
@@ -26,7 +28,7 @@ export function GuideEngine({ config, catalog }) {
 
   const { toasts, addToast, removeToast } = useToasts();
   const { status: cartStatus, addToCart } = useAddToCart();
-  const guide = useGuideState(config);
+  const guide = useGuideState(config, catalog);
   const [selectedAccessoryIds, setSelectedAccessoryIds] = useState([]);
   const [accessoryQuantities, setAccessoryQuantities] = useState({});
 
@@ -68,7 +70,9 @@ export function GuideEngine({ config, catalog }) {
 
   const accessories = useMemo(() => {
     if (!guide.isComplete) return [];
-    return config.getAccessories?.(guide.answers, resolvedProduct, catalog) ?? [];
+    return (
+      config.getAccessories?.(guide.answers, resolvedProduct, catalog) ?? []
+    );
   }, [catalog, config, guide.answers, guide.isComplete, resolvedProduct]);
 
   const pricing = useMemo(
@@ -192,11 +196,28 @@ export function GuideEngine({ config, catalog }) {
   const formatAnswer = (stepId, value) =>
     config.formatAnswer?.(stepId, value) ?? value;
 
-  const totalSteps = config.steps.length;
-  const stepNumber = Math.min(guide.stepIndex + 1, totalSteps);
+  const visibleSteps = useMemo(
+    () =>
+      getVisibleGuideSteps(
+        config.steps,
+        guide.answers,
+        catalog,
+        config.isStepVisible,
+      ),
+    [catalog, config.isStepVisible, config.steps, guide.answers],
+  );
+
+  const totalSteps = visibleSteps.length;
+  const currentVisibleIndex = visibleSteps.findIndex(
+    (entry) => entry.index === guide.stepIndex,
+  );
+  const stepNumber =
+    currentVisibleIndex >= 0 ? currentVisibleIndex + 1 : totalSteps;
   const progressPercent = guide.isComplete
     ? 100
-    : Math.round(((guide.stepIndex + 1) / (totalSteps + 1)) * 100);
+    : totalSteps > 0
+      ? Math.round((stepNumber / (totalSteps + 1)) * 100)
+      : 0;
 
   const cartItemCount =
     1 +
@@ -207,7 +228,9 @@ export function GuideEngine({ config, catalog }) {
 
   return (
     <>
-      <main className={`guide-main${isEmbedMode() ? " guide-main--embed" : ""}`}>
+      <main
+        className={`guide-main${isEmbedMode() ? " guide-main--embed" : ""}`}
+      >
         <GuideProgress
           title={config.meta?.title}
           stepNumber={stepNumber}
@@ -218,7 +241,8 @@ export function GuideEngine({ config, catalog }) {
 
         <div className="guide-layout">
           <GuideStepper
-            steps={config.steps}
+            steps={visibleSteps.map((entry) => entry.step)}
+            stepIndices={visibleSteps.map((entry) => entry.index)}
             answers={guide.answers}
             stepIndex={guide.stepIndex}
             isComplete={guide.isComplete}
@@ -255,7 +279,15 @@ export function GuideEngine({ config, catalog }) {
                 pricingTierCode={pricingTierCode}
                 onAddToCart={handleAddToCart}
                 onRestart={handleRestart}
-                onBack={() => guide.goToStep(config.steps.length - 1)}
+                onBack={() => {
+                  const lastIndex = findLastReachableStepIndex(
+                    config.steps,
+                    guide.answers,
+                    catalog,
+                    config.getStepOptions,
+                  );
+                  if (lastIndex >= 0) guide.goToStep(lastIndex);
+                }}
               />
             )}
           </div>

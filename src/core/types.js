@@ -43,6 +43,7 @@
  * @property {string} family
  * @property {"kit"|"montee"|null} [mounting]
  * @property {"fixe"|"sur-pieds"|null} [standType]
+ * @property {"outdoor"|"panneaux-amovibles"|"porte-verre"|null} [coffretVariant]
  * @property {string} productUrl
  * @property {string|null} imageUrl
  * @property {{ heightU: number|null, widthMm: number|null, depthMm: number|null }} attrs
@@ -75,6 +76,7 @@
  * @property {(answers: Record<string, string>, product: ResolvedProduct|null, catalog: CatalogProduct[]) => GuideAccessory[]} [getAccessories]
  * @property {(accessories: GuideAccessory[]) => Array<{ id: string, label: string, hint: string|null, items: GuideAccessory[] }>} [groupAccessories]
  * @property {(stepId: string, answers: Record<string, string>, catalog: CatalogProduct[]) => GuideOption[]|null} [getStepOptions]
+ * @property {(stepId: string, answers: Record<string, string>, catalog?: CatalogProduct[]) => boolean} [isStepVisible]
  * @property {(stepId: string, value: string) => string} [formatAnswer]
  * @property {(answers: Record<string, string>, catalog: CatalogProduct[]) => ResolvedProduct|null} resolveProduct
  */

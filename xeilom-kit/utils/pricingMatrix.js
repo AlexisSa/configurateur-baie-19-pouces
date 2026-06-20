@@ -3,9 +3,10 @@ import { getDefaultPricingTierCode } from "./pricingTier.js";
 import { pricingConfig } from "./pricingConfig.js";
 
 const TIER_CODES = /** @type {const} */ (["S", "M", "B", "A", "Z"]);
-const skuPrices = /** @type {Record<string, Partial<Record<(typeof TIER_CODES)[number], number|null>>>} */ (
-  pricingMatrixData.skus ?? {}
-);
+const skuPrices =
+  /** @type {Record<string, Partial<Record<(typeof TIER_CODES)[number], number|null>>>} */ (
+    pricingMatrixData.skus ?? {}
+  );
 
 /**
  * @param {string} sku

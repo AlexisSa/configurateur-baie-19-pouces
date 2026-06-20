@@ -1,4 +1,6 @@
 import { ArrowLeft, Check } from "lucide-react";
+import { hideBrokenImage } from "./imageFallback.js";
+import { useHeadingFocus } from "./useHeadingFocus.js";
 
 /**
  * @param {{
@@ -9,7 +11,14 @@ import { ArrowLeft, Check } from "lucide-react";
  *   canGoBack?: boolean,
  * }} props
  */
-export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack }) {
+export function StepQuestion({
+  step,
+  selectedValue,
+  onSelect,
+  onBack,
+  canGoBack,
+}) {
+  const headingRef = useHeadingFocus(step.id);
   const hasImages = step.options.some((option) => option.imageUrl);
   const hasDescriptions = step.options.some((option) => option.description);
 
@@ -22,9 +31,15 @@ export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack 
   return (
     <section className="panel guide-step">
       <div className="panel-header">
-        <h2 className="section-title">{step.question}</h2>
+        <h2 className="section-title" ref={headingRef} tabIndex={-1}>
+          {step.question}
+        </h2>
         {canGoBack && (
-          <button type="button" className="btn ghost guide-back-btn" onClick={onBack}>
+          <button
+            type="button"
+            className="btn ghost guide-back-btn"
+            onClick={onBack}
+          >
             <ArrowLeft size={16} aria-hidden />
             Retour
           </button>
@@ -70,13 +85,16 @@ export function StepQuestion({ step, selectedValue, onSelect, onBack, canGoBack 
                       alt={option.label}
                       loading="lazy"
                       decoding="async"
+                      onError={hideBrokenImage}
                     />
                   </span>
                 )}
                 <span className="option-tile-body">
                   <span className="option-tile-label">{option.label}</span>
                   {option.description && (
-                    <span className="option-tile-desc">{option.description}</span>
+                    <span className="option-tile-desc">
+                      {option.description}
+                    </span>
                   )}
                 </span>
               </button>

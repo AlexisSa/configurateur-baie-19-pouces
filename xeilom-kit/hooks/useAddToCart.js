@@ -83,7 +83,8 @@ export function useAddToCart() {
       for (const origin of getPostMessageTargets()) {
         window.parent.postMessage(payload, origin);
       }
-      const timeoutMs = items.length > 1 ? CART_TIMEOUT_MS * items.length : CART_TIMEOUT_MS;
+      const timeoutMs =
+        items.length > 1 ? CART_TIMEOUT_MS * items.length : CART_TIMEOUT_MS;
       const timeoutId = window.setTimeout(() => {
         pendingRef.current = null;
         window.top.location.href = buildCartFallbackUrl(items);

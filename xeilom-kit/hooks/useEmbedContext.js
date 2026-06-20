@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { isEmbedMode } from "../utils/embedMode.js";
 import {
   getAllowedEmbedOrigins,
-  isAllowedEmbedOrigin,
+  isTrustedParentOrigin,
 } from "../utils/embedOrigins.js";
 import {
   EMBED_CONTEXT_MESSAGE_TYPE,
@@ -45,9 +45,12 @@ function requestPricingContextFromParent() {
 
 /**
  * Lit la catégorie tarifaire depuis l'URL (?categoryId= ou ?pricingTier=).
+ * Réservé au développement : en production le tarif ne provient que du parent
+ * Xeilom (postMessage), sinon n'importe qui pourrait forcer un tarif via l'URL.
  * @returns {string|null}
  */
 function readPricingTierFromUrl() {
+  if (!import.meta.env.DEV) return null;
   const params = new URLSearchParams(window.location.search);
   return params.get("categoryId") ?? params.get("pricingTier");
 }
@@ -57,8 +60,9 @@ function readPricingTierFromUrl() {
  * @returns {string|null}
  */
 function readPricingTierFromMessage(event) {
-  if (!isAllowedEmbedOrigin(event.origin)) return null;
-  if (!event.data || event.data.type !== EMBED_CONTEXT_MESSAGE_TYPE) return null;
+  if (!isTrustedParentOrigin(event.origin)) return null;
+  if (!event.data || event.data.type !== EMBED_CONTEXT_MESSAGE_TYPE)
+    return null;
 
   const value = event.data.categoryId ?? event.data.pricingTier ?? null;
   if (value == null) return null;
@@ -71,7 +75,7 @@ function readPricingTierFromMessage(event) {
  */
 export function useEmbedContext() {
   const [pricingTierCode, setPricingTierCode] = useState(() =>
-    resolvePricingTierCode(readPricingTierFromUrl())
+    resolvePricingTierCode(readPricingTierFromUrl()),
   );
 
   useEffect(() => {

@@ -1,9 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
+import { findNextStepIndex, findPreviousStepIndex } from "./guideNavigation.js";
 
 /**
  * @param {import("./types.js").GuideConfig} config
+ * @param {import("./types.js").CatalogProduct[]} catalog
  */
-export function useGuideState(config) {
+export function useGuideState(config, catalog) {
   const stepIds = useMemo(
     () => config.steps.map((step) => step.id),
     [config.steps],
@@ -14,7 +16,20 @@ export function useGuideState(config) {
 
   const currentStep = config.steps[stepIndex] ?? null;
   const isComplete = stepIndex >= config.steps.length;
-  const canGoBack = stepIndex > 0 && !isComplete;
+
+  const previousStepIndex = useMemo(
+    () =>
+      findPreviousStepIndex(
+        stepIndex,
+        config.steps,
+        answers,
+        catalog,
+        config.getStepOptions,
+      ),
+    [answers, catalog, config.getStepOptions, config.steps, stepIndex],
+  );
+
+  const canGoBack = previousStepIndex >= 0 && !isComplete;
 
   const progress = useMemo(() => {
     if (!config.steps.length) return 0;
@@ -33,23 +48,25 @@ export function useGuideState(config) {
       }
 
       setAnswers(nextAnswers);
-      setStepIndex((index) => index + 1);
+      setStepIndex(
+        findNextStepIndex(
+          currentIdx,
+          config.steps,
+          nextAnswers,
+          catalog,
+          config.getStepOptions,
+        ),
+      );
     },
-    [answers, currentStep, stepIds],
+    [
+      answers,
+      catalog,
+      config.getStepOptions,
+      config.steps,
+      currentStep,
+      stepIds,
+    ],
   );
-
-  const goBack = useCallback(() => {
-    if (!canGoBack) return;
-    const newIndex = stepIndex - 1;
-    setAnswers((prev) => {
-      const next = { ...prev };
-      for (let i = newIndex + 1; i < stepIds.length; i += 1) {
-        delete next[stepIds[i]];
-      }
-      return next;
-    });
-    setStepIndex(newIndex);
-  }, [canGoBack, stepIndex, stepIds]);
 
   const goToStep = useCallback(
     (index) => {
@@ -66,9 +83,22 @@ export function useGuideState(config) {
     [config.steps.length, stepIds],
   );
 
+  const goBack = useCallback(() => {
+    if (!canGoBack) return;
+    goToStep(previousStepIndex);
+  }, [canGoBack, goToStep, previousStepIndex]);
+
   const skipStep = useCallback(() => {
-    setStepIndex((index) => index + 1);
-  }, []);
+    setStepIndex((index) =>
+      findNextStepIndex(
+        index,
+        config.steps,
+        answers,
+        catalog,
+        config.getStepOptions,
+      ),
+    );
+  }, [answers, catalog, config.getStepOptions, config.steps]);
 
   const restart = useCallback(() => {
     setStepIndex(0);

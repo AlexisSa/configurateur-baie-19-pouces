@@ -1,6 +1,7 @@
 import { ExternalLink, Check, Minus, Plus } from "lucide-react";
 import { oxatisProductUrl } from "./oxatisUrl.js";
 import { formatPriceHT, getLinePrice } from "./guidePricing.js";
+import { hideBrokenImage } from "./imageFallback.js";
 
 /**
  * @param {{
@@ -38,7 +39,8 @@ export function GuideAccessories({
         <div>
           <h3 className="guide-accessories-title">Options complémentaires</h3>
           <p className="guide-accessories-desc">
-            Facultatif — personnalisez votre commande avant l&apos;ajout au panier.
+            Facultatif — personnalisez votre commande avant l&apos;ajout au
+            panier.
           </p>
         </div>
         {selectedCount > 0 && (
@@ -49,16 +51,26 @@ export function GuideAccessories({
       </header>
 
       {groups.map((group) => (
-        <section key={group.id} className="guide-accessories-group" aria-label={group.label}>
+        <section
+          key={group.id}
+          className="guide-accessories-group"
+          aria-label={group.label}
+        >
           <h4 className="guide-accessories-group-title">{group.label}</h4>
-          {group.hint && <p className="guide-accessories-group-hint">{group.hint}</p>}
+          {group.hint && (
+            <p className="guide-accessories-group-hint">{group.hint}</p>
+          )}
           <ul className="guide-accessories-list" role="list">
             {group.items.map((accessory) => {
               const selected = selectedAccessoryIds.includes(accessory.id);
               const quantity = accessoryQuantities[accessory.id] ?? 1;
               const maxQuantity = accessory.maxQuantity ?? 1;
               const canChangeQuantity = maxQuantity > 1;
-              const price = getLinePrice(accessory.sku, quantity, pricingTierCode);
+              const price = getLinePrice(
+                accessory.sku,
+                quantity,
+                pricingTierCode,
+              );
 
               return (
                 <li
@@ -90,16 +102,23 @@ export function GuideAccessories({
                             alt=""
                             className="guide-accessory-image"
                             loading="lazy"
+                            onError={hideBrokenImage}
                           />
                         </span>
                       )}
 
                       <span className="guide-accessory-body">
-                        <span className="guide-accessory-label">{accessory.label}</span>
+                        <span className="guide-accessory-label">
+                          {accessory.label}
+                        </span>
                         <span className="guide-accessory-meta">
-                          <span className="guide-accessory-ref">Réf. {accessory.sku}</span>
+                          <span className="guide-accessory-ref">
+                            Réf. {accessory.sku}
+                          </span>
                           {accessory.description && (
-                            <span className="guide-accessory-desc">{accessory.description}</span>
+                            <span className="guide-accessory-desc">
+                              {accessory.description}
+                            </span>
                           )}
                         </span>
                         {price.unitPriceHT != null && (
@@ -130,7 +149,9 @@ export function GuideAccessories({
                         className={`guide-accessory-qty-bar${selected ? " guide-accessory-qty-bar--visible" : ""}`}
                         aria-hidden={!selected}
                       >
-                        <span className="guide-accessory-qty-label">Quantité</span>
+                        <span className="guide-accessory-qty-label">
+                          Quantité
+                        </span>
                         <div
                           className="guide-accessory-qty"
                           onClick={(event) => event.stopPropagation()}
@@ -140,7 +161,10 @@ export function GuideAccessories({
                             type="button"
                             className="guide-accessory-qty-btn"
                             onClick={() =>
-                              onAccessoryQuantityChange?.(accessory.id, quantity - 1)
+                              onAccessoryQuantityChange?.(
+                                accessory.id,
+                                quantity - 1,
+                              )
                             }
                             disabled={!selected || quantity <= 1}
                             tabIndex={selected ? 0 : -1}
@@ -148,14 +172,20 @@ export function GuideAccessories({
                           >
                             <Minus size={12} aria-hidden />
                           </button>
-                          <span className="guide-accessory-qty-value" aria-live="polite">
+                          <span
+                            className="guide-accessory-qty-value"
+                            aria-live="polite"
+                          >
                             {quantity}
                           </span>
                           <button
                             type="button"
                             className="guide-accessory-qty-btn"
                             onClick={() =>
-                              onAccessoryQuantityChange?.(accessory.id, quantity + 1)
+                              onAccessoryQuantityChange?.(
+                                accessory.id,
+                                quantity + 1,
+                              )
                             }
                             disabled={!selected || quantity >= maxQuantity}
                             tabIndex={selected ? 0 : -1}

@@ -4,6 +4,7 @@ import { getAccessories } from "../src/guides/baie/accessories.js";
 import {
   buildConfigurationSummary,
   filterCandidates,
+  getAvailableCoffretVariants,
   getAvailableStands,
   resolveProduct,
 } from "../src/guides/baie/rules.js";
@@ -33,6 +34,62 @@ describe("filterCandidates", () => {
     };
 
     expect(filterCandidates(answers, catalog)).toHaveLength(0);
+  });
+});
+
+describe("getAvailableCoffretVariants", () => {
+  it("propose 3 modèles pour un coffret étanche 600 x 600 mm", () => {
+    const variants = getAvailableCoffretVariants(
+      {
+        usage: "coffret-etanche",
+        height: "12",
+        width: "600",
+        depth: "600",
+      },
+      catalog,
+    );
+
+    expect(variants.map((option) => option.value)).toEqual([
+      "outdoor",
+      "panneaux-amovibles",
+      "porte-verre",
+    ]);
+  });
+
+  it("ne propose que l'outdoor pour une profondeur 450 mm", () => {
+    const variants = getAvailableCoffretVariants(
+      {
+        usage: "coffret-etanche",
+        height: "12",
+        width: "600",
+        depth: "450",
+      },
+      catalog,
+    );
+
+    expect(variants.map((option) => option.value)).toEqual(["outdoor"]);
+  });
+});
+
+describe("resolveProduct — coffret étanche", () => {
+  it("distingue outdoor, panneaux amovibles et porte vitrée", () => {
+    const base = {
+      usage: "coffret-etanche",
+      height: "12",
+      width: "600",
+      depth: "600",
+    };
+
+    expect(
+      resolveProduct({ ...base, coffretVariant: "outdoor" }, catalog)?.sku,
+    ).toBe("332-691712IP55.2");
+    expect(
+      resolveProduct({ ...base, coffretVariant: "panneaux-amovibles" }, catalog)
+        ?.sku,
+    ).toBe("XT-IP55126060PA");
+    expect(
+      resolveProduct({ ...base, coffretVariant: "porte-verre" }, catalog)?.sku,
+    ).toBe("XT-IP55126060PAV");
   });
 });
 

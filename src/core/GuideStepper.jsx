@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 /**
  * @param {{
  *   steps: import("./types.js").GuideStep[],
+ *   stepIndices?: number[],
  *   answers: Record<string, string>,
  *   stepIndex: number,
  *   isComplete: boolean,
@@ -12,6 +13,7 @@ import { Check } from "lucide-react";
  */
 export function GuideStepper({
   steps,
+  stepIndices,
   answers,
   stepIndex,
   isComplete,
@@ -19,11 +21,14 @@ export function GuideStepper({
   onGoToStep,
 }) {
   const format = formatAnswer ?? ((_, value) => value);
+  const resolveStepIndex = (displayIndex) =>
+    stepIndices?.[displayIndex] ?? displayIndex;
 
   return (
     <nav className="guide-stepper panel" aria-label="Étapes du guide">
       <ol className="guide-stepper-list">
-        {steps.map((step, index) => {
+        {steps.map((step, displayIndex) => {
+          const index = resolveStepIndex(displayIndex);
           const hasAnswer = Boolean(answers[step.id]);
           const isCompleted = isComplete ? hasAnswer : index < stepIndex;
           const isCurrent = !isComplete && index === stepIndex;
@@ -44,7 +49,7 @@ export function GuideStepper({
                 {isCompleted ? (
                   <Check size={14} strokeWidth={3} />
                 ) : (
-                  index + 1
+                  displayIndex + 1
                 )}
               </span>
 
@@ -53,8 +58,8 @@ export function GuideStepper({
                   {step.recapLabel ?? step.question}
                 </span>
 
-                {hasAnswer && (
-                  canEdit ? (
+                {hasAnswer &&
+                  (canEdit ? (
                     <button
                       type="button"
                       className="guide-stepper-value"
@@ -66,8 +71,7 @@ export function GuideStepper({
                     <span className="guide-stepper-value guide-stepper-value--static">
                       {format(step.id, answers[step.id])}
                     </span>
-                  )
-                )}
+                  ))}
 
                 {isCurrent && !hasAnswer && (
                   <span className="guide-stepper-hint">En cours…</span>

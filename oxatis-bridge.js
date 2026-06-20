@@ -5,14 +5,20 @@
  * ALLOWED_ORIGINS = origines de l'iframe (app guide), pas xeilom.fr.
  */
 (function () {
-  var ALLOWED_ORIGINS = [
-    "https://configurateur-baie-19-pouces.vercel.app",
+  // Origines de l'iframe (app guide) autorisées en production.
+  var PROD_ORIGINS = ["https://configurateur-baie-19-pouces.vercel.app"];
+  // Origines de développement, activées seulement si le bridge tourne en local.
+  var DEV_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:5174",
     "http://localhost:5175",
     "http://localhost:5176",
   ];
+  var isLocalHost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+  var ALLOWED_ORIGINS = isLocalHost
+    ? PROD_ORIGINS.concat(DEV_ORIGINS)
+    : PROD_ORIGINS;
 
   var ADD_TO_CART = "XEILOM_ADD_TO_CART";
   var ADD_TO_CART_RESULT = "XEILOM_ADD_TO_CART_RESULT";
@@ -167,10 +173,16 @@
   function sendPricingContext(source, origin) {
     var catid = null;
     try {
-      if (window.oxInfos && window.oxInfos.oxUser && window.oxInfos.oxUser.catid) {
+      if (
+        window.oxInfos &&
+        window.oxInfos.oxUser &&
+        window.oxInfos.oxUser.catid
+      ) {
         catid = String(window.oxInfos.oxUser.catid[0]);
       }
-    } catch (e) {}
+    } catch {
+      // Contexte client Oxatis indisponible : on reste sur le tarif par défaut.
+    }
     if (!catid) return;
     replyToIframe(source, origin, { type: EMBED_CONTEXT, categoryId: catid });
   }

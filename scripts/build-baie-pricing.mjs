@@ -1,7 +1,10 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseOxatisCsv, parseOxatisPriceHT } from "../xeilom-kit/scripts/lib/parseOxatisCsv.mjs";
+import {
+  parseOxatisCsv,
+  parseOxatisPriceHT,
+} from "../xeilom-kit/scripts/lib/parseOxatisCsv.mjs";
 import {
   OXATIS_TIER_COLUMNS,
   TIER_CODES,
@@ -22,7 +25,9 @@ const emptyTierPrices = () =>
  * @param {string[][]} rows
  */
 function indexOxatisPrices(header, rows) {
-  const columnIndex = Object.fromEntries(header.map((name, index) => [name, index]));
+  const columnIndex = Object.fromEntries(
+    header.map((name, index) => [name, index]),
+  );
   const skuIndex = columnIndex.ItemSKU;
   /** @type {Map<string, Record<string, number|null>>} */
   const bySku = new Map();
@@ -104,7 +109,9 @@ const filled = Object.values(skus).filter((tier) =>
   TIER_CODES.some((code) => tier[code] != null),
 ).length;
 
-console.log(`${OUT_PATH} mis à jour (${skusToImport.length} SKU, ${filled} avec au moins un tarif).`);
+console.log(
+  `${OUT_PATH} mis à jour (${skusToImport.length} SKU, ${filled} avec au moins un tarif).`,
+);
 if (missing.length) {
   console.warn(`${missing.length} SKU sans prix dans l'export :`);
   for (const sku of missing.slice(0, 10)) console.warn(`  - ${sku}`);

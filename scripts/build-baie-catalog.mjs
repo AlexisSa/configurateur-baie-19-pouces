@@ -12,7 +12,10 @@ const OUT_PATH = resolve(ROOT, "src/guides/baie/catalog.json");
 const CATEGORY_RULES = [
   { suffix: "Baies serveurs 19 pouces", family: "serveur" },
   { suffix: "Baie de brassage 19 pouces", family: "brassage" },
-  { suffix: "Baies étanches / outdoors IP55 19 pouces", family: "etanche-baie" },
+  {
+    suffix: "Baies étanches / outdoors IP55 19 pouces",
+    family: "etanche-baie",
+  },
   {
     suffix: "Coffrets étanches / outdoors IP55 19 pouces",
     family: "coffret-etanche",
@@ -60,6 +63,21 @@ function parseAttrsFromName(name) {
     widthMm: dimMatch ? Number(dimMatch[1]) : null,
     depthMm: dimMatch ? Number(dimMatch[2]) : null,
   };
+}
+
+/**
+ * @param {string} sku
+ * @param {string} name
+ * @param {string} family
+ * @returns {"outdoor"|"panneaux-amovibles"|"porte-verre"|null}
+ */
+function parseCoffretVariant(sku, name, family) {
+  if (family !== "coffret-etanche") return null;
+  if (/PAV$/i.test(sku) || /porte en verre/i.test(name)) return "porte-verre";
+  if (/PA$/i.test(sku) || /panneaux lat[eé]raux amovibles/i.test(name)) {
+    return "panneaux-amovibles";
+  }
+  return "outdoor";
 }
 
 /**
@@ -143,7 +161,9 @@ for (const row of rows) {
     categoryPath,
     family,
     mounting: parseMounting(name),
-    standType: family === "coffret-st" ? parseStandType(sku, categoryPath) : null,
+    standType:
+      family === "coffret-st" ? parseStandType(sku, categoryPath) : null,
+    coffretVariant: parseCoffretVariant(sku, name, family),
     productUrl: row[index.ProductUrl] ?? "",
     imageUrl: normalizeImageUrl(imageRaw),
     attrs,

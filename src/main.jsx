@@ -7,7 +7,8 @@ import "../xeilom-kit/styles/kit.css";
 import "./styles/guide.css";
 
 configurePricing({
-  disclaimer: "Prix indicatifs HT. Le total TTC est calculé avec la TVA en vigueur.",
+  disclaimer:
+    "Prix indicatifs HT. Le total TTC est calculé avec la TVA en vigueur.",
 });
 
 createRoot(document.getElementById("root")).render(

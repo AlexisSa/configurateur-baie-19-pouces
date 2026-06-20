@@ -11,10 +11,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import {
-  parseOxatisCsv,
-  parseOxatisPriceHT,
-} from "./lib/parseOxatisCsv.mjs";
+import { parseOxatisCsv, parseOxatisPriceHT } from "./lib/parseOxatisCsv.mjs";
 import {
   OXATIS_SKU_ALIASES,
   OXATIS_TIER_COLUMNS,
@@ -36,7 +33,9 @@ try {
 
 const resolvePath = (relativePath) => join(projectRoot, relativePath);
 const csvArg = process.argv[2];
-const csvPath = csvArg ? resolvePath(csvArg) : resolvePath(config.oxatisCsvPath);
+const csvPath = csvArg
+  ? resolvePath(csvArg)
+  : resolvePath(config.oxatisCsvPath);
 const catalogPath = resolvePath(config.catalogPath);
 const matrixPath = resolvePath(config.pricingMatrixPath);
 
@@ -75,7 +74,9 @@ function buildSkuMap() {
  * @returns {Map<string, Record<string, number|null>>}
  */
 function indexOxatisPrices(header, rows) {
-  const columnIndex = Object.fromEntries(header.map((name, index) => [name, index]));
+  const columnIndex = Object.fromEntries(
+    header.map((name, index) => [name, index]),
+  );
   const skuIndex = columnIndex.ItemSKU;
   /** @type {Map<string, Record<string, number|null>>} */
   const bySku = new Map();
@@ -100,7 +101,9 @@ function indexOxatisPrices(header, rows) {
 async function main() {
   if (!existsSync(csvPath)) {
     console.error(`Fichier introuvable : ${csvPath}`);
-    console.error("Placez l'export Oxatis (CSV) dans data/import/ puis relancez.");
+    console.error(
+      "Placez l'export Oxatis (CSV) dans data/import/ puis relancez.",
+    );
     process.exit(1);
   }
 
@@ -152,7 +155,7 @@ async function main() {
   writeFileSync(matrixPath, `${JSON.stringify(output, null, 2)}\n`);
 
   const filled = Object.values(skus).filter((tier) =>
-    TIER_CODES.every((code) => tier[code] != null)
+    TIER_CODES.every((code) => tier[code] != null),
   ).length;
 
   console.log(`${matrixPath} mis à jour (${Object.keys(skus).length} SKU).`);

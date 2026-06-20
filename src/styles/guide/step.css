@@ -1,0 +1,169 @@
+.guide-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+/* —— Question / étape —— */
+.guide-step-desc {
+  margin: -0.35rem 0 1.25rem;
+}
+
+.guide-step-empty {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+/* —— États communs des tuiles (survol / sélection) —— */
+.guide-content .option-tile:hover:not(.disabled) {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.guide-content .option-tile.selected {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-muted);
+}
+
+.guide-content .option-tile.selected:hover {
+  transform: translateY(-2px);
+}
+
+.option-tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Neutralise les paddings hérités du kit (gérés ici par .option-tile-body) */
+.guide-content .option-tile-label,
+.guide-content .option-tile-desc {
+  padding: 0;
+  margin: 0;
+}
+
+/* —— Variante « valeur » (hauteur, largeur, profondeur) —— */
+.option-grid--value {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(6.5rem, 100%), 1fr));
+  gap: 0.65rem;
+}
+
+.option-tile--value .option-tile-main {
+  text-align: center;
+}
+
+.option-tile--value .option-tile-body {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 3.7rem;
+  padding: 1.1rem 0.75rem;
+}
+
+.option-tile--value .option-tile-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.option-tile--value.selected .option-tile-label {
+  color: var(--brand-dark);
+}
+
+/* —— Variante « texte » (montage) —— */
+.option-grid--text {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .option-grid--text {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.option-tile--text .option-tile-main {
+  text-align: left;
+}
+
+.option-tile--text .option-tile-body {
+  text-align: left;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.option-tile--text .option-tile-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.option-tile--text .option-tile-desc {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* —— Variante « visuelle » (gammes avec photo) —— */
+.option-grid--visual {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(13.5rem, 100%), 1fr));
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .option-grid--visual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.option-tile--visual .option-tile-main {
+  text-align: left;
+}
+
+.option-tile--visual .option-tile-visual {
+  height: 8.5rem;
+  padding: 1rem;
+  background: transparent;
+}
+
+.option-tile--visual .option-tile-image {
+  max-height: 6.5rem;
+}
+
+.option-tile--visual .option-tile-body {
+  flex: 1;
+  gap: 0.3rem;
+  padding: 0.95rem 1rem 1.1rem;
+  text-align: left;
+}
+
+.option-tile--visual .option-tile-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.option-tile--visual .option-tile-desc {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-content .option-tile:hover:not(.disabled),
+  .guide-content .option-tile.selected:hover {
+    transform: none;
+  }
+}

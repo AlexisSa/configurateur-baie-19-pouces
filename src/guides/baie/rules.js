@@ -40,6 +40,25 @@ export const STAND_OPTIONS = [
   },
 ];
 
+/** @type {{ value: "outdoor"|"panneaux-amovibles"|"porte-verre", label: string, description: string }[]} */
+export const COFFRET_VARIANT_OPTIONS = [
+  {
+    value: "outdoor",
+    label: "Outdoor standard",
+    description: "Coffret IP55 compact pour installation extérieure",
+  },
+  {
+    value: "panneaux-amovibles",
+    label: "Panneaux latéraux amovibles",
+    description: "Accès latéral facilité pour le câblage et la maintenance",
+  },
+  {
+    value: "porte-verre",
+    label: "Panneaux amovibles + porte vitrée",
+    description: "Visibilité des équipements avec porte en verre sécurit",
+  },
+];
+
 /**
  * @param {string} usage
  * @param {import("../../core/types.js").CatalogProduct[]} catalog
@@ -103,6 +122,16 @@ export function matchesStand(stand, product) {
 }
 
 /**
+ * @param {string} coffretVariant
+ * @param {import("../../core/types.js").CatalogProduct} product
+ */
+export function matchesCoffretVariant(coffretVariant, product) {
+  if (!coffretVariant) return true;
+  if (product.coffretVariant == null) return false;
+  return product.coffretVariant === coffretVariant;
+}
+
+/**
  * @param {Record<string, string>} answers
  * @param {import("../../core/types.js").CatalogProduct[]} catalog
  */
@@ -115,7 +144,14 @@ export function filterCandidates(answers, catalog) {
     if (answers.width && !matchesWidth(answers.width, product)) return false;
     if (answers.depth && !matchesDepth(answers.depth, product)) return false;
     if (answers.stand && !matchesStand(answers.stand, product)) return false;
-    if (answers.mounting && !matchesMounting(answers.mounting, product)) return false;
+    if (
+      answers.coffretVariant &&
+      !matchesCoffretVariant(answers.coffretVariant, product)
+    ) {
+      return false;
+    }
+    if (answers.mounting && !matchesMounting(answers.mounting, product))
+      return false;
     return true;
   });
 }
@@ -187,10 +223,31 @@ export function getAvailableDepths(usage, heightU, widthMm, catalog) {
  * @param {Record<string, string>} answers
  * @param {import("../../core/types.js").CatalogProduct[]} catalog
  */
+export function getAvailableCoffretVariants(answers, catalog) {
+  if (answers.usage !== "coffret-etanche") return [];
+
+  const candidates = filterCandidates(
+    { ...answers, coffretVariant: "", stand: "", mounting: "" },
+    catalog,
+  );
+  const variants = new Set(
+    candidates.map((product) => product.coffretVariant).filter(Boolean),
+  );
+
+  return COFFRET_VARIANT_OPTIONS.filter((option) => variants.has(option.value));
+}
+
+/**
+ * @param {Record<string, string>} answers
+ * @param {import("../../core/types.js").CatalogProduct[]} catalog
+ */
 export function getAvailableStands(answers, catalog) {
   if (answers.usage !== "coffret-st") return [];
 
-  const candidates = filterCandidates({ ...answers, stand: "", mounting: "" }, catalog);
+  const candidates = filterCandidates(
+    { ...answers, stand: "", mounting: "" },
+    catalog,
+  );
   const stands = new Set(
     candidates.map((product) => product.standType).filter(Boolean),
   );
@@ -213,6 +270,16 @@ export function getAvailableMountings(answers, catalog) {
 /**
  * @param {string} stepId
  * @param {Record<string, string>} answers
+ */
+export function isStepVisible(stepId, answers) {
+  if (stepId === "stand") return answers.usage === "coffret-st";
+  if (stepId === "coffretVariant") return answers.usage === "coffret-etanche";
+  return true;
+}
+
+/**
+ * @param {string} stepId
+ * @param {Record<string, string>} answers
  * @param {import("../../core/types.js").CatalogProduct[]} catalog
  */
 export function getStepOptions(stepId, answers, catalog) {
@@ -229,6 +296,15 @@ export function getStepOptions(stepId, answers, catalog) {
       answers.width,
       catalog,
     );
+  }
+  if (
+    stepId === "coffretVariant" &&
+    answers.usage === "coffret-etanche" &&
+    answers.height &&
+    answers.width &&
+    answers.depth
+  ) {
+    return getAvailableCoffretVariants(answers, catalog);
   }
   if (
     stepId === "stand" &&
@@ -260,10 +336,20 @@ export function formatAnswer(stepId, value) {
   if (stepId === "height") return `${value} U`;
   if (stepId === "width" || stepId === "depth") return `${value} mm`;
   if (stepId === "stand") {
-    return STAND_OPTIONS.find((option) => option.value === value)?.label ?? value;
+    return (
+      STAND_OPTIONS.find((option) => option.value === value)?.label ?? value
+    );
+  }
+  if (stepId === "coffretVariant") {
+    return (
+      COFFRET_VARIANT_OPTIONS.find((option) => option.value === value)?.label ??
+      value
+    );
   }
   if (stepId === "mounting") {
-    return MOUNTING_OPTIONS.find((option) => option.value === value)?.label ?? value;
+    return (
+      MOUNTING_OPTIONS.find((option) => option.value === value)?.label ?? value
+    );
   }
   return value;
 }
@@ -287,10 +373,17 @@ export function buildConfigurationSummary(answers) {
         answers.stand,
     );
   }
+  if (answers.coffretVariant) {
+    parts.push(
+      COFFRET_VARIANT_OPTIONS.find(
+        (option) => option.value === answers.coffretVariant,
+      )?.label ?? answers.coffretVariant,
+    );
+  }
   if (answers.mounting) {
     parts.push(
-      MOUNTING_OPTIONS.find((option) => option.value === answers.mounting)?.label ??
-        answers.mounting,
+      MOUNTING_OPTIONS.find((option) => option.value === answers.mounting)
+        ?.label ?? answers.mounting,
     );
   }
 
@@ -306,12 +399,16 @@ export function resolveProduct(answers, catalog) {
   const candidates = filterCandidates(answers, catalog);
   if (!candidates.length) return null;
 
+  // Tri par SKU pour un départage déterministe en cas d'ambiguïté
+  // (indépendant de l'ordre du catalogue).
+  const sorted = [...candidates].sort((a, b) => a.sku.localeCompare(b.sku));
+
   if (answers.mounting) {
-    return toResolved(candidates[0], answers);
+    return toResolved(sorted[0], answers);
   }
 
-  const withMounting = candidates.filter((product) => product.mounting != null);
-  const pool = withMounting.length ? withMounting : candidates;
+  const withMounting = sorted.filter((product) => product.mounting != null);
+  const pool = withMounting.length ? withMounting : sorted;
   const preferred =
     pool.find((product) => product.mounting === "montee") ?? pool[0];
 

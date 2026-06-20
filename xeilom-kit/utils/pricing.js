@@ -1,4 +1,7 @@
-import { getDefaultPricingTierCode, getPricingTierLabel } from "./pricingTier.js";
+import {
+  getDefaultPricingTierCode,
+  getPricingTierLabel,
+} from "./pricingTier.js";
 import { getSkuTierPriceHT } from "./pricingMatrix.js";
 import { pricingConfig } from "./pricingConfig.js";
 
@@ -11,7 +14,10 @@ import { pricingConfig } from "./pricingConfig.js";
  * @param {string} [pricingTierCode]
  * @returns {number|null}
  */
-export function getUnitPriceHT(sku, pricingTierCode = getDefaultPricingTierCode()) {
+export function getUnitPriceHT(
+  sku,
+  pricingTierCode = getDefaultPricingTierCode(),
+) {
   return getSkuTierPriceHT(sku, pricingTierCode);
 }
 
@@ -20,7 +26,10 @@ export function getUnitPriceHT(sku, pricingTierCode = getDefaultPricingTierCode(
  * @param {string} [pricingTierCode]
  * @returns {PricedLine}
  */
-export function applyPricingToLine(line, pricingTierCode = getDefaultPricingTierCode()) {
+export function applyPricingToLine(
+  line,
+  pricingTierCode = getDefaultPricingTierCode(),
+) {
   if (line.sku === "INCLUS") {
     return { ...line, unitPriceHT: null, lineTotalHT: null };
   }
@@ -38,7 +47,10 @@ export function applyPricingToLine(line, pricingTierCode = getDefaultPricingTier
  * @param {PricedLine[]} lines
  * @param {string} [pricingTierCode]
  */
-export function applyPricingToLines(lines, pricingTierCode = getDefaultPricingTierCode()) {
+export function applyPricingToLines(
+  lines,
+  pricingTierCode = getDefaultPricingTierCode(),
+) {
   return lines.map((line) => applyPricingToLine(line, pricingTierCode));
 }
 
@@ -46,9 +58,11 @@ export function applyPricingToLines(lines, pricingTierCode = getDefaultPricingTi
  * @param {PricedLine[]} lines
  */
 export function getPricedTotalHT(lines) {
-  return Math.round(
-    lines.reduce((sum, line) => sum + (line.lineTotalHT ?? 0), 0) * 100
-  ) / 100;
+  return (
+    Math.round(
+      lines.reduce((sum, line) => sum + (line.lineTotalHT ?? 0), 0) * 100,
+    ) / 100
+  );
 }
 
 /**
@@ -107,7 +121,9 @@ export function formatPriceHT(amount) {
  * @param {string} [pricingTierCode]
  * @returns {string}
  */
-export function getPricingDisclaimer(pricingTierCode = getDefaultPricingTierCode()) {
+export function getPricingDisclaimer(
+  pricingTierCode = getDefaultPricingTierCode(),
+) {
   const text = pricingConfig.disclaimer?.trim();
   const isPublicTier = pricingTierCode === "S";
   const tierNote = isPublicTier

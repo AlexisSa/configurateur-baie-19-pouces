@@ -99,7 +99,8 @@ export const BAIE_ACCESSORIES = [
     sku: "CBVE00NR0001",
     label: "Ventilateur pour coffret",
     description: "Flux d'air 50–110 m³/h — 230 V",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/01/CBVE00NR0001_1x175.jpg",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/01/CBVE00NR0001_1x175.jpg",
     productUrl: "https://www.xeilom.fr/ventilateur-pour-coffrets-19",
     compatUsage: ["coffret-st"],
   },
@@ -111,7 +112,8 @@ export const BAIE_ACCESSORIES = [
     label: "Lot de 4 vérins",
     description: "Nivellement de la baie ou du coffret",
     imageUrl: "https://www.xeilom.fr/Files/126457/Img/21/KX-6-4V_1x175.png",
-    productUrl: "https://www.xeilom.fr/lot-de-4-verins-pour-baies-et-coffrets-19-pouces",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-4-verins-pour-baies-et-coffrets-19-pouces",
     compatUsage: ["coffret-st"],
   },
   {
@@ -121,8 +123,10 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-26-2G",
     label: "Lot de 2 goulottes verticales",
     description: "Baie 26U — largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
-    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-26u",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-26u",
     compatUsage: ["serveur", "brassage"],
     compatMinWidthMm: 800,
     compatHeightU: 26,
@@ -134,8 +138,10 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-32-2G",
     label: "Lot de 2 goulottes verticales",
     description: "Baie 32U — largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
-    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-32u",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-32u",
     compatUsage: ["serveur", "brassage"],
     compatMinWidthMm: 800,
     compatHeightU: 32,
@@ -147,8 +153,10 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-36-2G",
     label: "Lot de 2 goulottes verticales",
     description: "Baie 36U — largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
-    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-36u",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-36u",
     compatUsage: ["serveur", "brassage"],
     compatMinWidthMm: 800,
     compatHeightU: 36,
@@ -160,8 +168,10 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-42-2G",
     label: "Lot de 2 goulottes verticales",
     description: "Baie 42U — largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
-    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-42u",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-42u",
     compatUsage: ["serveur", "brassage"],
     compatMinWidthMm: 800,
     compatHeightU: 42,
@@ -174,7 +184,8 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-42-2G-GP",
     label: "Lot de 2 goulottes verticales",
     description: "Grande capacité — baie 42U, largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/02/KX-6-xx-2G-GP-7-small.png",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/02/KX-6-xx-2G-GP-7-small.png",
     productUrl:
       "https://www.xeilom.fr/lot-de-2-goulottes-verticales-grande-capacite-pour-baies-42u",
     compatUsage: ["serveur", "brassage"],
@@ -189,8 +200,10 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-47-2G",
     label: "Lot de 2 goulottes verticales",
     description: "Baie 47U — largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
-    productUrl: "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-47u",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/15/KX-6-xx-2G-7-small.png",
+    productUrl:
+      "https://www.xeilom.fr/lot-de-2-goulottes-verticales-pour-baie-47u",
     compatUsage: ["serveur", "brassage"],
     compatMinWidthMm: 800,
     compatHeightU: 47,
@@ -203,7 +216,8 @@ export const BAIE_ACCESSORIES = [
     sku: "XT-6-47-2G-GP",
     label: "Lot de 2 goulottes verticales",
     description: "Grande capacité — baie 47U, largeur 800 mm",
-    imageUrl: "https://www.xeilom.fr/Files/126457/Img/02/KX-6-xx-2G-GP-7-small.png",
+    imageUrl:
+      "https://www.xeilom.fr/Files/126457/Img/02/KX-6-xx-2G-GP-7-small.png",
     productUrl:
       "https://www.xeilom.fr/lot-de-2-goulottes-verticales-grande-capacite-pour-baies-47u",
     compatUsage: ["serveur", "brassage"],
@@ -217,9 +231,10 @@ export const BAIE_ACCESSORIES = [
     productId: 27399790,
     sku: "BAN8PCIN",
     label: "Bandeau électrique 8 prises",
-    description: "1U 19\" — 8 prises 2P+T — sans interrupteur",
+    description: '1U 19" — 8 prises 2P+T — sans interrupteur',
     imageUrl: "https://www.xeilom.fr/Files/126457/Img/04/BAN8PCIN_1x175.jpg",
-    productUrl: "https://www.xeilom.fr/bandeau-electrique-8-prises-2pt-1u-19-sans-interrupteur",
+    productUrl:
+      "https://www.xeilom.fr/bandeau-electrique-8-prises-2pt-1u-19-sans-interrupteur",
     compatUsage: ["serveur", "brassage", "coffret-st"],
     exclusiveGroup: "bandeau-electrique",
     maxQuantity: 2,
@@ -230,9 +245,10 @@ export const BAIE_ACCESSORIES = [
     productId: 27399791,
     sku: "BAN8PCIN-2",
     label: "Bandeau électrique 8 prises",
-    description: "1U 19\" — 8 prises 2P+T — avec interrupteur",
+    description: '1U 19" — 8 prises 2P+T — avec interrupteur',
     imageUrl: "https://www.xeilom.fr/Files/126457/Img/11/BAN8PCIN-2_1x175.jpg",
-    productUrl: "https://www.xeilom.fr/bandeau-electrique-8-prises-2pt-1u-19-avec-interrupteur",
+    productUrl:
+      "https://www.xeilom.fr/bandeau-electrique-8-prises-2pt-1u-19-avec-interrupteur",
     compatUsage: ["serveur", "brassage", "coffret-st"],
     exclusiveGroup: "bandeau-electrique",
     maxQuantity: 2,
@@ -284,11 +300,13 @@ export function getAccessories(answers) {
 
   return BAIE_ACCESSORIES.filter((item) => {
     if (!item.compatUsage.includes(usage)) return false;
-    if (item.compatDepthMm != null && depthMm !== item.compatDepthMm) return false;
+    if (item.compatDepthMm != null && depthMm !== item.compatDepthMm)
+      return false;
     if (item.compatMinWidthMm != null) {
       if (widthMm == null || widthMm < item.compatMinWidthMm) return false;
     }
-    if (item.compatHeightU != null && heightU !== item.compatHeightU) return false;
+    if (item.compatHeightU != null && heightU !== item.compatHeightU)
+      return false;
     return true;
   });
 }

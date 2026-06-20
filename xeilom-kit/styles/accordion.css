@@ -99,7 +99,8 @@
   color: var(--text);
 }
 
-.option-accordion--configured:not(.option-accordion--open) .option-accordion-title {
+.option-accordion--configured:not(.option-accordion--open)
+  .option-accordion-title {
   color: var(--brand-dark);
 }
 

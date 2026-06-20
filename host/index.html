@@ -74,7 +74,9 @@
         var lines = [];
 
         function appendLog(text) {
-          lines.unshift("[" + new Date().toLocaleTimeString("fr-FR") + "] " + text);
+          lines.unshift(
+            "[" + new Date().toLocaleTimeString("fr-FR") + "] " + text,
+          );
           if (lines.length > 12) lines.length = 12;
           logEl.textContent = lines.join("\n");
         }
@@ -83,7 +85,10 @@
           var data = event.data;
           if (!data || typeof data.type !== "string") return;
 
-          if (data.type === "xeilom-resize" && typeof data.height === "number") {
+          if (
+            data.type === "xeilom-resize" &&
+            typeof data.height === "number"
+          ) {
             frame.style.height = Math.max(data.height, 320) + "px";
             appendLog("xeilom-resize → hauteur " + data.height + "px");
             return;
@@ -99,7 +104,9 @@
               "XEILOM_ADD_TO_CART → " +
                 cartItems
                   .map(function (item) {
-                    return "id=" + item.productId + " qty=" + (item.quantity || 1);
+                    return (
+                      "id=" + item.productId + " qty=" + (item.quantity || 1)
+                    );
                   })
                   .join(", "),
             );

@@ -1,0 +1,52 @@
+/* —— En-tête de progression —— */
+.guide-progress {
+  margin-bottom: 1.5rem;
+}
+
+.guide-progress-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.guide-progress-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.guide-progress-step {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--brand);
+  background: var(--brand-light);
+  padding: 0.32rem 0.72rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.guide-progress-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  overflow: hidden;
+}
+
+.guide-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-dark));
+  transition: width 0.45s var(--ease-out);
+}
+
+@media (max-width: 540px) {
+  .guide-progress-title {
+    font-size: 1.1rem;
+  }
+}

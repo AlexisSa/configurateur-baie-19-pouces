@@ -22,7 +22,9 @@ try {
 }
 
 const resolvePath = (relativePath) => join(projectRoot, relativePath);
-const catalog = JSON.parse(readFileSync(resolvePath(config.catalogPath), "utf8"));
+const catalog = JSON.parse(
+  readFileSync(resolvePath(config.catalogPath), "utf8"),
+);
 const matrixPath = resolvePath(config.pricingMatrixPath);
 
 const TIER_CODES = ["S", "M", "B", "A", "Z"];
@@ -35,7 +37,7 @@ const skus = {};
 function setSkuPrice(sku, priceS) {
   if (!sku) return;
   const existing = skus[sku] ?? emptyTierPrices();
-  existing.S = typeof priceS === "number" ? priceS : existing.S ?? null;
+  existing.S = typeof priceS === "number" ? priceS : (existing.S ?? null);
   skus[sku] = existing;
 }
 
@@ -43,7 +45,10 @@ for (const gamme of catalog.gammes ?? []) {
   if (gamme.baseSku && gamme.unitPriceHT != null) {
     setSkuPrice(gamme.baseSku, gamme.unitPriceHT);
     for (const materiau of gamme.materiaux ?? []) {
-      setSkuPrice(gamme.baseSku + (materiau.skuSuffix ?? ""), gamme.unitPriceHT);
+      setSkuPrice(
+        gamme.baseSku + (materiau.skuSuffix ?? ""),
+        gamme.unitPriceHT,
+      );
     }
   }
 }
