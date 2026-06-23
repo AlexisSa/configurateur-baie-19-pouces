@@ -5,8 +5,10 @@ import {
   buildConfigurationSummary,
   filterCandidates,
   getAvailableCoffretVariants,
+  getAvailableMountings,
   getAvailableStands,
   resolveProduct,
+  usageHasMountingOptions,
 } from "../src/guides/baie/rules.js";
 
 describe("filterCandidates", () => {
@@ -54,6 +56,7 @@ describe("getAvailableCoffretVariants", () => {
       "panneaux-amovibles",
       "porte-verre",
     ]);
+    expect(variants.every((option) => option.imageUrl)).toBe(true);
   });
 
   it("ne propose que l'outdoor pour une profondeur 450 mm", () => {
@@ -145,6 +148,28 @@ describe("getAvailableStands", () => {
     );
 
     expect(stands.map((option) => option.value)).toEqual(["fixe", "sur-pieds"]);
+    expect(stands.every((option) => option.imageUrl)).toBe(true);
+    expect(stands.find((option) => option.value === "fixe")?.imageUrl).toBe(
+      "https://www.xeilom.fr/Files/126457/Img/10/KX-ST126045MN_1.jpg",
+    );
+  });
+});
+
+describe("getAvailableMountings", () => {
+  it("associe une image catalogue à chaque option kit / montée", () => {
+    const mountings = getAvailableMountings(
+      {
+        usage: "coffret-st",
+        height: "12",
+        width: "600",
+        depth: "450",
+        stand: "fixe",
+      },
+      catalog,
+    );
+
+    expect(mountings.map((option) => option.value)).toEqual(["montee", "kit"]);
+    expect(mountings.every((option) => option.imageUrl)).toBe(true);
   });
 });
 
@@ -160,6 +185,16 @@ describe("buildConfigurationSummary", () => {
         mounting: "montee",
       }),
     ).toContain("Sur pieds");
+  });
+});
+
+describe("usageHasMountingOptions", () => {
+  it("retourne false pour les coffrets étanches", () => {
+    expect(usageHasMountingOptions("coffret-etanche", catalog)).toBe(false);
+  });
+
+  it("retourne true pour une baie serveur", () => {
+    expect(usageHasMountingOptions("serveur", catalog)).toBe(true);
   });
 });
 

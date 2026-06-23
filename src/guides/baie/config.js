@@ -5,17 +5,7 @@ import {
   resolveProduct,
 } from "./rules.js";
 import { getAccessories, groupAccessories } from "./accessories.js";
-
-/** Illustrations des gammes — versions montées (photos catalogue Xeilom). */
-const GAMME_IMAGES = {
-  serveur: "https://www.xeilom.fr/Files/126457/Img/18/S6-600x1000_1.png",
-  brassage: "https://www.xeilom.fr/Files/126457/Img/02/B6-600x600_1.png",
-  "coffret-st": "https://www.xeilom.fr/Files/126457/Img/10/KX-ST126045MN_1.jpg",
-  "etanche-baie":
-    "https://www.xeilom.fr/Files/126457/Img/22/BAIEIP55-246060GS_1.jpg",
-  "coffret-etanche":
-    "https://www.xeilom.fr/Files/126457/Img/15/332-691707IP55-1_1.jpg",
-};
+import { GAMME_IMAGES } from "./images.js";
 
 /** @type {import("../../core/types.js").GuideConfig} */
 export const baieGuideConfig = {
@@ -99,7 +89,6 @@ export const baieGuideConfig = {
       question: "Quel modèle de coffret étanche ?",
       description:
         "Outdoor compact, panneaux latéraux amovibles ou porte vitrée selon vos besoins d'accès.",
-      tileVariant: "text",
       options: [],
     },
     {
@@ -107,7 +96,6 @@ export const baieGuideConfig = {
       recapLabel: "Pose",
       question: "Fixe ou sur pieds ?",
       description: "Choisissez le type de pose pour votre coffret.",
-      tileVariant: "text",
       options: [],
     },
     {
@@ -115,7 +103,6 @@ export const baieGuideConfig = {
       recapLabel: "Montage",
       question: "En kit ou montée ?",
       description: "Version assemblée en usine ou à monter sur site.",
-      tileVariant: "text",
       options: [],
     },
   ],

@@ -1,3 +1,5 @@
+import { GAMME_IMAGES } from "./images.js";
+
 /** @type {Record<string, string[]>} */
 export const USAGE_FAMILIES = {
   serveur: ["serveur"],
@@ -32,6 +34,7 @@ export const STAND_OPTIONS = [
     value: "fixe",
     label: "Fixe",
     description: "Coffret mural ou sur socle",
+    imageUrl: GAMME_IMAGES["coffret-st"],
   },
   {
     value: "sur-pieds",
@@ -220,6 +223,24 @@ export function getAvailableDepths(usage, heightU, widthMm, catalog) {
 }
 
 /**
+ * @param {import("../../core/types.js").GuideOption[]} options
+ * @param {import("../../core/types.js").CatalogProduct[]} candidates
+ * @param {(option: import("../../core/types.js").GuideOption, product: import("../../core/types.js").CatalogProduct) => boolean} matchesOption
+ */
+function withProductImages(options, candidates, matchesOption) {
+  return options.map((option) => {
+    if (option.imageUrl) return option;
+
+    const product = candidates
+      .filter((candidate) => matchesOption(option, candidate))
+      .sort((a, b) => a.sku.localeCompare(b.sku))[0];
+
+    if (!product?.imageUrl) return option;
+    return { ...option, imageUrl: product.imageUrl };
+  });
+}
+
+/**
  * @param {Record<string, string>} answers
  * @param {import("../../core/types.js").CatalogProduct[]} catalog
  */
@@ -234,7 +255,11 @@ export function getAvailableCoffretVariants(answers, catalog) {
     candidates.map((product) => product.coffretVariant).filter(Boolean),
   );
 
-  return COFFRET_VARIANT_OPTIONS.filter((option) => variants.has(option.value));
+  return withProductImages(
+    COFFRET_VARIANT_OPTIONS.filter((option) => variants.has(option.value)),
+    candidates,
+    (option, product) => product.coffretVariant === option.value,
+  );
 }
 
 /**
@@ -252,7 +277,11 @@ export function getAvailableStands(answers, catalog) {
     candidates.map((product) => product.standType).filter(Boolean),
   );
 
-  return STAND_OPTIONS.filter((option) => stands.has(option.value));
+  return withProductImages(
+    STAND_OPTIONS.filter((option) => stands.has(option.value)),
+    candidates,
+    (option, product) => product.standType === option.value,
+  );
 }
 
 /**
@@ -264,16 +293,35 @@ export function getAvailableMountings(answers, catalog) {
   const mountings = new Set(
     candidates.map((product) => product.mounting).filter(Boolean),
   );
-  return MOUNTING_OPTIONS.filter((option) => mountings.has(option.value));
+  return withProductImages(
+    MOUNTING_OPTIONS.filter((option) => mountings.has(option.value)),
+    candidates,
+    (option, product) => product.mounting === option.value,
+  );
+}
+
+/**
+ * @param {string} usage
+ * @param {import("../../core/types.js").CatalogProduct[]} catalog
+ */
+export function usageHasMountingOptions(usage, catalog) {
+  if (!usage) return false;
+  return filterByUsage(catalog, usage).some(
+    (product) => product.mounting != null,
+  );
 }
 
 /**
  * @param {string} stepId
  * @param {Record<string, string>} answers
+ * @param {import("../../core/types.js").CatalogProduct[]} [catalog]
  */
-export function isStepVisible(stepId, answers) {
+export function isStepVisible(stepId, answers, catalog) {
   if (stepId === "stand") return answers.usage === "coffret-st";
   if (stepId === "coffretVariant") return answers.usage === "coffret-etanche";
+  if (stepId === "mounting") {
+    return catalog ? usageHasMountingOptions(answers.usage, catalog) : true;
+  }
   return true;
 }
 

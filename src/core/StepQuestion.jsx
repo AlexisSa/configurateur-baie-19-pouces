@@ -23,9 +23,10 @@ export function StepQuestion({
   const hasDescriptions = step.options.some((option) => option.description);
 
   let variant = step.tileVariant ?? "value";
-  if (!step.tileVariant) {
-    if (hasImages) variant = "visual";
-    else if (hasDescriptions) variant = "text";
+  if (hasImages) {
+    variant = "visual";
+  } else if (!step.tileVariant) {
+    if (hasDescriptions) variant = "text";
   }
 
   return (

@@ -28,6 +28,28 @@ describe("isStepVisibleInGuide", () => {
     ).toBe(false);
   });
 
+  it("masque Montage quand la gamme ne propose pas kit / montée", () => {
+    expect(
+      isStepVisibleInGuide(
+        { id: "mounting", question: "", options: [] },
+        { usage: "coffret-etanche" },
+        catalog,
+        isStepVisible,
+      ),
+    ).toBe(false);
+  });
+
+  it("affiche Montage pour les gammes avec choix kit / montée", () => {
+    expect(
+      isStepVisibleInGuide(
+        { id: "mounting", question: "", options: [] },
+        { usage: "serveur" },
+        catalog,
+        isStepVisible,
+      ),
+    ).toBe(true);
+  });
+
   it("affiche Pose et Modèle dès la sélection de la gamme", () => {
     expect(
       isStepVisibleInGuide(
@@ -83,5 +105,17 @@ describe("getVisibleGuideSteps", () => {
 
     expect(steps.map(({ step }) => step.id)).not.toContain("stand");
     expect(steps.map(({ step }) => step.id)).not.toContain("coffretVariant");
+    expect(steps.map(({ step }) => step.id)).toContain("mounting");
+  });
+
+  it("n'inclut pas Montage pour un coffret étanche", () => {
+    const steps = getVisibleGuideSteps(
+      baieGuideConfig.steps,
+      { usage: "coffret-etanche" },
+      catalog,
+      isStepVisible,
+    );
+
+    expect(steps.map(({ step }) => step.id)).not.toContain("mounting");
   });
 });
