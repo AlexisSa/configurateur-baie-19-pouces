@@ -5,8 +5,12 @@ import {
   RotateCcw,
   SearchX,
   ShoppingCart,
+  Tag,
+  UserPlus,
 } from "lucide-react";
 import { GuideAccessories } from "./GuideAccessories.jsx";
+import { getPricingTierAudienceLabel, isPublicPricingTier } from "../../xeilom-kit/utils/pricingTier.js";
+import { OXATIS_SIGNUP_URL } from "./oxatisUrl.js";
 import { formatPriceHT, getLinePrice } from "./guidePricing.js";
 import { hideBrokenImage } from "./imageFallback.js";
 import { useHeadingFocus } from "./useHeadingFocus.js";
@@ -32,8 +36,6 @@ import { useHeadingFocus } from "./useHeadingFocus.js";
  *     totalHT: number,
  *     totalTTC: number,
  *     hasPrices: boolean,
- *     tierLabel?: string,
- *     disclaimer?: string,
  *   },
  *   pricingTierCode?: string,
  *   onAddToCart: () => void,
@@ -116,25 +118,55 @@ export function GuideResult({
   const renderPricing = () => {
     if (!pricing?.hasPrices) return null;
 
+    const isPublicTier = isPublicPricingTier(pricingTierCode);
+
     return (
-      <div className="guide-result-pricing panel-inset">
-        <div className="guide-result-pricing-row guide-result-pricing-row--head">
-          <span>Total configuration</span>
-          <span className="guide-result-pricing-total">
-            {formatPriceHT(pricing.totalHT)} HT
-            <span className="guide-result-pricing-ttc">
+      <div className="guide-result-pricing">
+        <div className="guide-result-pricing-summary">
+          <p className="guide-result-pricing-label">Total configuration</p>
+          <div className="guide-result-pricing-amounts">
+            <p className="guide-result-pricing-ht">
+              {formatPriceHT(pricing.totalHT)}
+              <span className="guide-result-pricing-ht-unit">HT</span>
+            </p>
+            <p className="guide-result-pricing-ttc">
               {formatPriceHT(pricing.totalTTC)} TTC
-            </span>
-          </span>
+            </p>
+          </div>
         </div>
-        {pricing.tierLabel && (
-          <p className="guide-result-pricing-tier">
-            Tarif : {pricing.tierLabel}
-          </p>
-        )}
-        {pricing.disclaimer && (
-          <p className="guide-result-pricing-note">{pricing.disclaimer}</p>
-        )}
+
+        <div className="guide-result-pricing-footer">
+          <span
+            className={`guide-result-pricing-badge guide-result-pricing-badge--${isPublicTier ? "public" : "pro"}`}
+          >
+            <Tag size={13} strokeWidth={2.2} aria-hidden />
+            {getPricingTierAudienceLabel(pricingTierCode)}
+          </span>
+
+          {isPublicTier && (
+            <div className="guide-result-pricing-cta">
+              <UserPlus
+                size={18}
+                strokeWidth={2}
+                className="guide-result-pricing-cta-icon"
+                aria-hidden
+              />
+              <p className="guide-result-pricing-cta-text">
+                Accédez aux tarifs professionnels en{" "}
+                <a
+                  href={OXATIS_SIGNUP_URL}
+                  className="guide-result-pricing-cta-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  créant un compte
+                  <ExternalLink size={12} strokeWidth={2.2} aria-hidden />
+                </a>
+                .
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     );
   };

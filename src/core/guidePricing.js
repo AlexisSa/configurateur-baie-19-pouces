@@ -2,17 +2,14 @@ import {
   applyPricingToLines,
   formatPriceHT,
   getPricedTotalHT,
-  getPricingDisclaimer,
   getTotalTTC,
   hasPricedLines,
 } from "../../xeilom-kit/utils/pricing.js";
-import { getPricingTierLabel } from "../../xeilom-kit/utils/pricingTier.js";
 
 export {
   applyPricingToLines,
   formatPriceHT,
   getPricedTotalHT,
-  getPricingDisclaimer,
   getTotalTTC,
   hasPricedLines,
 };
@@ -58,8 +55,6 @@ export function buildGuidePricing({
     totalHT,
     totalTTC: getTotalTTC(totalHT),
     hasPrices: hasPricedLines(lines),
-    tierLabel: getPricingTierLabel(pricingTierCode),
-    disclaimer: getPricingDisclaimer(pricingTierCode),
   };
 }
 

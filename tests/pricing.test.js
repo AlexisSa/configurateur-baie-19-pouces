@@ -7,6 +7,7 @@ import {
 } from "../xeilom-kit/utils/pricing.js";
 import { getSkuTierPriceHT } from "../xeilom-kit/utils/pricingMatrix.js";
 import { configurePricing } from "../xeilom-kit/utils/pricingConfig.js";
+import { getPricingTierAudienceLabel, isPublicPricingTier } from "../xeilom-kit/utils/pricingTier.js";
 import { buildGuidePricing } from "../src/core/guidePricing.js";
 
 // SKU réel présent dans la matrice tarifaire (tarif public S = 530,40 € HT).
@@ -59,6 +60,24 @@ describe("getSkuTierPriceHT — lot de 24", () => {
     expect(getSkuTierPriceHT("TEST-LOT-24", "S")).toBe(
       Math.round(KNOWN_PRICE_S * 24 * 100) / 100,
     );
+  });
+});
+
+describe("getPricingTierAudienceLabel", () => {
+  it("affiche Tarif public pour le code S", () => {
+    expect(getPricingTierAudienceLabel("S")).toBe("Tarif public");
+  });
+
+  it("affiche Tarif professionnel pour les autres codes", () => {
+    expect(getPricingTierAudienceLabel("M")).toBe("Tarif professionnel");
+    expect(getPricingTierAudienceLabel("B")).toBe("Tarif professionnel");
+  });
+});
+
+describe("isPublicPricingTier", () => {
+  it("identifie le tarif public", () => {
+    expect(isPublicPricingTier("S")).toBe(true);
+    expect(isPublicPricingTier("M")).toBe(false);
   });
 });
 

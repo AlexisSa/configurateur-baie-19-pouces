@@ -61,7 +61,7 @@ export const baieGuideConfig = {
     {
       id: "height",
       recapLabel: "Hauteur",
-      question: "Quelle hauteur utile (en U) ?",
+      question: "Quelle hauteur (en U) ?",
       description:
         "Hauteurs disponibles dans notre catalogue pour cette gamme.",
       tileVariant: "text",
@@ -71,7 +71,7 @@ export const baieGuideConfig = {
       id: "width",
       recapLabel: "Largeur",
       question: "Quelle largeur (mm) ?",
-      description: "Largeur utile de la baie, en millimètres.",
+      description: "Largeur de la baie, en millimètres.",
       tileVariant: "text",
       options: [],
     },
@@ -79,7 +79,7 @@ export const baieGuideConfig = {
       id: "depth",
       recapLabel: "Profondeur",
       question: "Quelle profondeur (mm) ?",
-      description: "Profondeur utile de la baie, en millimètres.",
+      description: "Profondeur de la baie, en millimètres.",
       tileVariant: "text",
       options: [],
     },

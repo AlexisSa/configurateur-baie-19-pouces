@@ -68,3 +68,20 @@ export function getPricingTier(tierCode) {
 export function getPricingTierLabel(tierCode = defaultTierCode) {
   return getPricingTier(tierCode).label;
 }
+
+/**
+ * Libellé affiché à l'utilisateur (sans code tarif S/M/B/A/Z).
+ * @param {string} [tierCode]
+ * @returns {"Tarif public"|"Tarif professionnel"}
+ */
+export function getPricingTierAudienceLabel(tierCode = defaultTierCode) {
+  return tierCode === "S" ? "Tarif public" : "Tarif professionnel";
+}
+
+/**
+ * @param {string} [tierCode]
+ * @returns {boolean}
+ */
+export function isPublicPricingTier(tierCode = defaultTierCode) {
+  return tierCode === "S";
+}
